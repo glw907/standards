@@ -64,7 +64,7 @@ reviewers write only their output file,
 
 ## The fold
 
-One fold agent (`claude-opus-5-5`) takes every review file. It verifies a finding before acting on
+One fold agent (`claude-opus-5-5`) takes every review file. It follows `standards:receiving-code-review`: it verifies a finding before acting on
 it and never agrees performatively. It writes a fold record with one disposition per finding:
 folded (where the revision carries it), refused (a one-line reason), or owner fork.
 

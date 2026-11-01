@@ -1,6 +1,6 @@
 # standards
 
-A Claude Code plugin marketplace holding one plugin, `standards`: craft skills for languages and tools, review agents, and a short lifecycle for planning, executing, and closing a pass of work. Anything in it works in any repository, with no machine-specific tool or path assumed.
+A Claude Code plugin marketplace holding one plugin, `standards`: craft skills for languages and tools, review agents, and a short lifecycle for planning, executing, and closing a pass of work. Anything in it works in any repository, with no machine-specific tool or path assumed. The `kitty-headless-shot` helper needs `distrobox`.
 
 ## Install
 
@@ -36,7 +36,7 @@ Plugin skills and agents carry the `standards:` prefix, such as `standards:diff-
 
 ## Contributing
 
-Changes land by pull request. The `validate` check runs `claude plugin validate` on the plugin and the marketplace, the scan, and the skill length check. See `THIRD-PARTY-NOTICES` for vendored skills and their licenses.
+Changes land by pull request. The `validate` check runs `claude plugin validate` on the plugin and the marketplace, the scan, the skill length check, and the reference check. See `THIRD-PARTY-NOTICES` for vendored skills and their licenses.
 
 ## License
 

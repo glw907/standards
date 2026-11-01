@@ -135,7 +135,7 @@ words. They can override it.
 |------|----------------------|------|
 | A quick, clear task | the request itself | do it |
 | A small change | in chat | build it through the normal workflow |
-| A project with a written design | a written design document | a full plan (for software: superpowers:writing-plans) |
+| A project with a written design | a written design document | a full plan (for software: `standards:running-passes` "Plan") |
 
 If it grows mid-task, stop, say so, and step up a size.
 
@@ -153,9 +153,8 @@ could plan from without going back to your human partner. Cover:
 - the parts of the how they decided, as they decided them
 - what's left to the builder
 
-**Where it goes:** in a software repo,
-`docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, committed.
-Otherwise, ask. Your human partner's preferences override both.
+**Where it goes:** where the repository's pass guide puts designs, committed. Absent a guide,
+ask. Your human partner's preferences override both.
 
 **Builder check:** dispatch a fresh subagent with
 `builder-check-prompt.md` in this directory. When you tell your human
@@ -189,7 +188,8 @@ stays labeled throwaway, and keeping what it produced is a new request
 that comes back through this gate.
 
 After a project's document is approved, the next step is the plan. For
-software, invoke superpowers:writing-plans and no other skill.
+software, follow `standards:running-passes` and the repository's pass guide, which also set where
+the plan goes.
 </HARD-GATE>
 
 ## Red Flags
