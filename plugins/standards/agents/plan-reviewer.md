@@ -34,6 +34,10 @@ On a plan, also check these items:
   stay red across several heads while each report names only the local checks).
 - A migration's inventory is checked against the live stores before approval, so no item turns
   up mid-run.
+- A plan that relies on a third-party API's writes runs the real write sequence once in a throwaway
+  probe before the build, reading each result back and restoring the prior state, and writes its
+  fixtures from those replies. A catalog or a read doesn't show that the service accepts what it
+  returns, stores what it reports stored, or answers inside the plan's timeouts.
 - Every live command the run repeats is written out in full, flags included, at each step that
   runs it, so a repeat cannot drop a flag the first use carried.
 - The plan has a standing answer for the run's success bar becoming unreachable mid-run: which
