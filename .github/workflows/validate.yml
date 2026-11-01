@@ -41,3 +41,5 @@ jobs:
         run: tests/scan-test.sh
       - name: Check skill length
         run: scripts/check-skill-lines.sh
+      - name: Check reference form
+        run: node scripts/check-references.mjs

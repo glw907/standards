@@ -6,7 +6,7 @@ set -uo pipefail
 root=${1:-.}
 cd "$root" || exit 2
 patterns=scripts/scan-patterns.txt
-exclude=(':!scripts/scan-patterns.txt' ':!tests/' ':!LICENSE')
+exclude=(':!scripts/scan-patterns.txt' ':!tests/scan-test.sh' ':!LICENSE')
 status=0
 
 if ! gitleaks git --no-banner --redact . ; then
