@@ -28,7 +28,7 @@ If vet or tests fail, fix the issues before proceeding.
 ### 2. Simplify
 
 Run the simplifier once, as the branch's close step. When
-`<repo>/.claude/skills/simplify/` exists (poplar), invoke that project skill;
+`<repo>/.claude/skills/simplify/` exists, invoke that project skill;
 otherwise dispatch `code-simplifier:code-simplifier` over the changed Go, with the instruction
 "no sub-agents, work serially, one gate, one commit". Check
 the path, never the name: the bundled `/simplify` resolves by name in every

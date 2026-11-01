@@ -51,7 +51,7 @@ The three lenses and the verification read are kept for `auth-data` and `live-ac
 
 On a plan, the mechanics lens also checks the plan checklist in the `plan-reviewer` agent's body.
 
-Dispatch the mechanics lens as the `plan-reviewer` agent; the dispatching session saves its reply
+Dispatch the mechanics lens as the `standards:plan-reviewer` agent; the dispatching session saves its reply
 beside the plan as `<date>-<target>-review-mechanics.md`. Every other reviewer dispatch
 carries the target path and commit, the lens, and the same ask the agent holds: report every gap
 found, ranked by consequence, each with a severity (blocker, major, minor), a tag (`correctness`
