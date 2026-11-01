@@ -1,0 +1,7 @@
+/home/[a-z]
+/var/home
+~/(Projects|\.claude|\.dotfiles|\.local|\.config)
+\$HOME/(Projects|\.claude|\.dotfiles|\.local)
+\bGeoff\b
+\b(907\.life|orpheus|thinkpad-x1|pavilion)\b
+\b(cairn-run-gate|claude-tooling-sync|approval-queue|approval-packet|claude-pass|secret-receive|secret-set|pass-cli|claude-clock-stop|claude-merge-guard|tellgrader)\b

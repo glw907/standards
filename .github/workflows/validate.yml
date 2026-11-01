@@ -1,0 +1,43 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      GITLEAKS_VERSION: 8.30.1
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Install gitleaks
+        run: |
+          base="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}"
+          curl -fsSL -O "${base}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -fsSL -O "${base}/gitleaks_${GITLEAKS_VERSION}_checksums.txt"
+          sha256sum --ignore-missing -c "gitleaks_${GITLEAKS_VERSION}_checksums.txt"
+          tar -xzf "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" gitleaks
+          sudo install gitleaks /usr/local/bin/gitleaks
+      - name: Install Claude Code
+        run: npm install --global @anthropic-ai/claude-code@2.1.316
+      - name: Validate the plugin and the marketplace
+        run: |
+          claude plugin validate plugins/standards
+          claude plugin validate .
+          node scripts/validate-warnings.mjs
+      - name: Scan for secrets and personal paths
+        run: scripts/scan.sh
+      - name: Prove the scan fails a seeded repository
+        run: tests/scan-test.sh
+      - name: Check skill length
+        run: scripts/check-skill-lines.sh

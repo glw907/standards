@@ -1,0 +1,7 @@
+{
+  "name": "standards",
+  "description": "Portable craft skills and reviewers for Claude Code: conventions, review agents, and a short pass lifecycle.",
+  "author": { "name": "glw907", "url": "https://github.com/glw907" },
+  "license": "MIT",
+  "repository": "https://github.com/glw907/standards"
+}

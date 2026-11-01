@@ -1,0 +1,12 @@
+{
+  "name": "glw907-standards",
+  "description": "Craft skills and review agents for Claude Code that any project can use.",
+  "owner": { "name": "glw907" },
+  "plugins": [
+    {
+      "name": "standards",
+      "source": "./plugins/standards",
+      "description": "Portable craft skills and reviewers for Claude Code: conventions, review agents, and a short pass lifecycle."
+    }
+  ]
+}
