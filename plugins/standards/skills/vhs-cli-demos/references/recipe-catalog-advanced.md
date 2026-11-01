@@ -1,5 +1,17 @@
 # Advanced recipe-catalog techniques (from a production catalog)
 
+## Contents
+
+- [Mocking an external CLI dependency](#mocking-an-external-cli-dependency)
+- [`recordFromBoot`: an authentic cold-start story](#recordfromboot-an-authentic-cold-start-story)
+- [`visibleCommand`: decouple what's typed on camera from what actually runs](#visiblecommand-decouple-whats-typed-on-camera-from-what-actually-runs)
+- [Per-recipe `env`: pin a fast, cheap model for deterministic AI timing](#per-recipe-env-pin-a-fast-cheap-model-for-deterministic-ai-timing)
+- [Generating recipes programmatically](#generating-recipes-programmatically)
+- ["Tour" recipes: a deliberate exception to "one story per demo"](#tour-recipes-a-deliberate-exception-to-one-story-per-demo)
+- [Character-based sizing for explicit dimensions](#character-based-sizing-for-explicit-dimensions)
+- [Addressing several recipes in one invocation](#addressing-several-recipes-in-one-invocation)
+
+
 `recipe-catalog-pattern.md` covers the base shape. Once a catalog grows past a
 few dozen recipes, a handful of harder problems show up repeatedly:
 capturing app views that depend on an external CLI (`gh`, `glab`), telling an

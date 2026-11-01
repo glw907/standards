@@ -1,5 +1,14 @@
 # The recipe-catalog pattern
 
+## Contents
+
+- [When to adopt it](#when-to-adopt-it)
+- [The four pieces](#the-four-pieces)
+- [A reference implementation](#a-reference-implementation)
+- [Beyond the base pattern](#beyond-the-base-pattern)
+- [Determinism checklist (applies to every recipe)](#determinism-checklist-applies-to-every-recipe)
+
+
 One-off `.tape` files are fine for a handful of captures. But when a project needs
 *many* — every view, every theme, kept in sync as the UI evolves — hand-written
 tapes rot: they drift from the UI, people regenerate them by hand, and the

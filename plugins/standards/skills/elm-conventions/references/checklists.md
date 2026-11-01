@@ -1,5 +1,13 @@
 # Planning and review checklists
 
+## Contents
+
+- [Planning questions](#planning-questions)
+- [Review checklist](#review-checklist)
+- [v1-only APIs to reject](#v1-only-apis-to-reject)
+- [Other traps](#other-traps)
+
+
 Companion to `elm-conventions`. The rules and their sources are in
 `SKILL.md`; this file turns them into questions to answer before the
 code and checks to run on the diff.
