@@ -26,7 +26,7 @@ cover prose. A spec or plan is written in whatever voice serves Claude Code best
 
 1. The lenses the depth below names run in parallel, each a fresh-context Opus agent at effort
    `medium`. Their names are contract and criteria, mechanics and feasibility, and data integrity
-   and failure risk. The mechanics lens is the `plan-reviewer` agent.
+   and failure risk. The mechanics lens is the `standards:plan-reviewer` agent.
 2. One fold agent records a disposition per finding and revises the document.
 3. A verification read checks the fold, and the fold agent applies its findings, only on an
    `auth-data` or `live-account` pass. Another read runs only when it finds a blocker.
@@ -46,13 +46,13 @@ The three lenses and the verification read are kept for `auth-data` and `live-ac
 | Lens | Asks |
 | --- | --- |
 | Contract and criteria | Is every promise testable? Does each criterion name its fixture and the reason it would fail? Can any criterion pass vacuously? |
-| Mechanics and feasibility | The `plan-reviewer` agent holds this lens prompt and the plan checklist. |
+| Mechanics and feasibility | The `standards:plan-reviewer` agent holds this lens prompt and the plan checklist. |
 | Data integrity and failure risk | What happens on a crash, a concurrent process, a partial write, an upgrade, a restore? Can data be lost or silently corrupted? |
 
-On a plan, the mechanics lens also checks the plan checklist in the `plan-reviewer` agent's body.
+On a plan, the mechanics lens also checks the plan checklist in the `standards:plan-reviewer` agent's body.
 
-Dispatch the mechanics lens as the `plan-reviewer` agent; the dispatching session saves its reply
-as `docs/research/<date>-<target>-review-mechanics.md`. Every other reviewer dispatch
+Dispatch the mechanics lens as the `standards:plan-reviewer` agent; the dispatching session saves its reply
+beside the plan as `<date>-<target>-review-mechanics.md`. Every other reviewer dispatch
 carries the target path and commit, the lens, and the same ask the agent holds: report every gap
 found, ranked by consequence, each with a severity (blocker, major, minor), a tag (`correctness`
 if it affects correctness or a stated requirement, `optional` otherwise), the location
@@ -60,7 +60,7 @@ if it affects correctness or a stated requirement, `optional` otherwise), the lo
 cost in clock time and tokens. A finding whose resolution is a product or priority choice is marked
 **OWNER FORK**, with the options and a recommendation; a reviewer never rules a fork. Those
 reviewers write only their output file,
-`docs/research/<date>-<target>-review-<lens>.md`.
+`<date>-<target>-review-<lens>.md`, beside the plan.
 
 ## The fold
 

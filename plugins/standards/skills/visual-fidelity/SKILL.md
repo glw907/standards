@@ -32,7 +32,7 @@ fresh-context verifiers outperform self-critique). This skill is the countermeas
    them IMPROVED without per-item approval, recording what was fixed. Verifiers grade
    against the manifest, not the plan, because the plan is a lossy compression of the
    original and three builds under-matched by checking the compression.
-2. **Device catalogue.** An agent (vision-capable, Opus+) READS the references plus the
+2. **Device catalogue.** An agent that reads images READS the references plus the
    source CSS and produces the structural + typographic device catalogue: chrome anatomy,
    composition per page template, card/band recipes, every typographic device (wordmark,
    stamps, links, quotes, code), color PLACEMENT (where each hue actually lands). Exact

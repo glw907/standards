@@ -42,7 +42,7 @@ the deterministic Vale check.
    the sentences do.
 5. Humanize and skeptic pass, run as an independent critic. Dispatch a fresh subagent that sees
    only the draft, the brief, the site's voice calibration set (negative and positive examples;
-   ECXC's is `docs/voice-calibration.md`), and the nearest corpus entries. Two hunts. Style: the
+   a site's is its own voice-calibration doc), and the nearest corpus entries. Two hunts. Style: the
    sentences that match a negative example or could appear on any organization's site. Logic:
    read as the most knowledgeable, least charitable reader the piece will ever get and flag any
    claim or implication that reader knows to be false, plus any frame whose reasoning does not
@@ -69,7 +69,7 @@ and praise go to the calibration set with the pattern named; shipped edits get h
 batch (the corpus carries the procedure); and any change to the system itself gets
 regression-checked against the calibration set before it is trusted. First-party gold outranks
 the third-party corpus, which outranks the guide's recipes. The site guide carries the full
-routing (for ECXC: `docs/content-guide.md`, "How the system learns").
+routing (a site's content guide names where each lesson lands).
 
 ## 2. The exemplar library
 

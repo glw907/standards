@@ -102,7 +102,7 @@ fast.
 ## Note on coverage-gated repos
 
 ESLint and a TSDoc-syntax gate own the mechanical standard; they cannot see whether a comment
-is worth its space. Where a repo also enforces export-doc coverage (a `check:reference`-style
+is worth its space. Where a repo also enforces export-doc coverage (a reference-coverage
 gate plus `jsdoc/require-jsdoc` with `publicOnly`), every exported symbol keeps a minimal
 one-line doc by design, so a terse doc on a self-evident export is correct there, not a
 redundancy to delete. Spend the judgment on internal helpers and on prose quality: the

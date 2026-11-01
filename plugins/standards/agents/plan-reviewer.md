@@ -1,6 +1,6 @@
 ---
 name: plan-reviewer
-description: Reviews a pass plan or spec through the mechanics and feasibility lens and returns tagged findings. Read-only.
+description: Reviews a pass plan or spec through the mechanics and feasibility lens and returns tagged findings. Use when a spec or pass plan is drafted and before the owner approves it; the spec-plan-review skill dispatches it. Read-only.
 tools: Read, Grep, Glob, Bash, WebFetch
 model: claude-opus-5-5
 effort: medium

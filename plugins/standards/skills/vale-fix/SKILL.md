@@ -17,7 +17,7 @@ in someone else's pull request is worse than the alerts.
 
 Check these before doing any work, and stop with a plain message if one fails:
 
-1. `vale --version` succeeds. If not, use the `setup` skill.
+1. `vale --version` succeeds. If not, use the `vale-setup` skill.
 2. A config exists — `vale ls-config` resolves without error.
 3. The working tree is clean, or the user has said it is fine to branch from
    what is there.
@@ -111,7 +111,7 @@ Most rules name their own replacement; these are the shapes that need judgment:
 - **Contractions** — whichever direction the project's style goes; do not
   switch a document's register halfway through.
 - **Spelling** — a flagged product name is not a misspelling. Use the
-  `vocab` skill instead of editing the word.
+  `vale-vocab` skill instead of editing the word.
 
 ## Do not
 

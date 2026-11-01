@@ -175,7 +175,7 @@ Tell the user what was logged, briefly:
 
 > Logged **#3** `(H)` `#bug` `#ops-dashboard`: Fix modal close on mobile
 
-## Step 6: Commit and push
+## Step 6: Commit
 
 After adding, closing, or updating an issue, commit the backlog file alone:
 
