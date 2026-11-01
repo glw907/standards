@@ -216,6 +216,8 @@ When the user references a domain that isn't in the config:
 
 ## Notes
 
+- Friction goes to the backlog of the repo that owns the fix, filed there from whichever repo met
+  it. No repo keeps a separate friction log.
 - The backlog lives at `backlog_path`, by default `BACKLOG.md` at the project root (alongside
   `README.md`) so anyone browsing the repo finds it. Commit it to git.
 - This is a quick capture tool, not a project management system. If an issue
