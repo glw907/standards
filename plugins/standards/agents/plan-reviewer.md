@@ -66,6 +66,11 @@ On a plan, also check these items:
 - A long-lived branch the pass maintains from worktrees, such as a preview branch, names who updates
   it and how, under the pass's worktree isolation.
 - The close reruns the docs gate after the last docs edit.
+- A pre-flight check on a credential exercises each scope the run writes with, not only a read.
+- A check in a clean container names how the session logs in and what replaces each workstation-only
+  command it calls.
+- Every bar in a plan is one a real pass can meet: an all-items check over free-form answers states
+  its core claims and gets a trial read before approval.
 
 ## Findings
 
