@@ -71,6 +71,9 @@ On a plan, also check these items:
   command it calls.
 - Every bar in a plan is one a real pass can meet: an all-items check over free-form answers states
   its core claims and gets a trial read before approval.
+- An acceptance grep has been seen to fail on the unchanged tree, so it can't pass with the edits
+  missing.
+- A plan never reads a credential by another path after a refusal; a refused read is a stop.
 
 ## Findings
 
