@@ -73,6 +73,12 @@ On a plan, also check these items:
   its core claims and gets a trial read before approval.
 - An acceptance grep has been seen to fail on the unchanged tree, so it can't pass with the edits
   missing.
+- A plan calls a user path tested only when a check reads the outcome where the user would see
+  it, such as a published edit fetched from the live URL. A success message, an exit code, or a
+  commit on the remote shows a step ran, not that the user got the result. Every terminal branch of
+  the path (a declined offer, a skipped chapter) gets a check of that kind.
+- The dependency map runs each name a task changes through a grep of the tests and generated
+  checks, and every file that pins the name is in that task's file list.
 - A plan never reads a credential by another path after a refusal; a refused read is a stop.
 
 ## Findings
