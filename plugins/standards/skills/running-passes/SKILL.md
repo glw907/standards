@@ -20,9 +20,10 @@ Otherwise explore the design with the user in chat, one question at a time, with
 1. The outcome.
 2. The files and interfaces touched.
 3. What is out of scope.
-4. One end-to-end check.
-5. The risk class.
-6. Every step only the user can do (a sign-in, a secret, a dialog, a permission rule).
+4. How each behavior fails (bad input, no permission, over a limit), with a number for every limit.
+5. One end-to-end check.
+6. The risk class.
+7. Every step only the user can do (a sign-in, a secret, a dialog, a permission rule).
 
 Sweep the backlog for items the design clears or contradicts, and list each verdict in the design. Keep to what was asked: no extra features, no refactors beyond the task, no defensive handling for cases that cannot happen, no abstraction for a one-time operation. Extras go in a "Later" list and are never built.
 

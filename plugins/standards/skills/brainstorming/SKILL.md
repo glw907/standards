@@ -71,6 +71,8 @@ out as questions:
 - why now, and what success looks like to them
 - goals, non-goals, and anti-goals (what would make this a failure even
   if it technically works)
+- what happens when it goes wrong: bad input, a missing permission, a
+  limit crossed, and the number for each limit
 - prior art: what they've seen elsewhere, loved or hated
 - current state: what exists now, what they've tried
 - the details they care about
@@ -149,6 +151,7 @@ could plan from without going back to your human partner. Cover:
 
 - intent and the why
 - goals, non-goals, anti-goals
+- failure behavior and quantified limits
 - constraints
 - the parts of the how they decided, as they decided them
 - what's left to the builder
