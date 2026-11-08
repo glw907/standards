@@ -80,6 +80,9 @@ On a plan, also check these items:
 - The dependency map runs each name a task changes through a grep of the tests and generated
   checks, and every file that pins the name is in that task's file list.
 - A plan never reads a credential by another path after a refusal; a refused read is a stop.
+- Every mechanism of existing code that the design or plan asserts (where a file lives, how an
+  auth flow binds a token, what a permission can read, what a consumer loads, what a release step
+  packs) carries the `file:line` that shows it.
 
 ## Findings
 
