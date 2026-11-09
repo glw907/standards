@@ -83,6 +83,11 @@ On a plan, also check these items:
 - Every mechanism of existing code that the design or plan asserts (where a file lives, how an
   auth flow binds a token, what a permission can read, what a consumer loads, what a release step
   packs) carries the `file:line` that shows it.
+- A merge gate that requires a review with no open finding sets a severity floor for the rounds
+  after the whole-branch review: a delta review's Low findings are folded once, with that fold
+  checked by the session's own diff read and CI, or filed, and never start another round. A gate
+  with no floor lets each fix's smaller residual hold the merge round after round (cairn-setup P1,
+  glw907/cairn-cms#201: five security rounds; Geoff, 2026-11-09).
 
 ## Findings
 
