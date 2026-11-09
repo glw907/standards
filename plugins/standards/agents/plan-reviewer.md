@@ -60,6 +60,9 @@ On a plan, also check these items:
   harness classifies a denied compound command, whether a subagent may run in the background
   (anthropics/claude-code#73453 ends the run), and one session's measured length, and sets the
   suite's estimate from sessions times that length over the parallelism.
+- A plan built from a design that carries no scoped backlog sweep, no estimate in path minutes,
+  or no pre-flight list supplies each one, records the gap as a design-stage planning miss, and
+  sends all three to the owner as asks before the first launch, never as settled facts.
 - An eval fixture that runs a type check says what that check needs first, such as a built `dist`,
   and the heap it needs on the lane that runs it.
 - A rule that counts a denied command as a fault says when a session that recovers still counts.
