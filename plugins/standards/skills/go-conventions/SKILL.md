@@ -34,9 +34,6 @@ applies them to Go specifics.
   competent Go reader no worse off, the comment should not exist. This
   is the single most effective filter against machine-shaped comments.
 
-When the shape of a comment is in doubt, open the nearest standard-library
-file and copy how its maintainers handled the same case.
-
 ## Anti-Patterns: Go That Looks Like Python or JavaScript
 
 Reject these forms, which carry habits from other languages into Go:
@@ -360,8 +357,7 @@ gate:
 Skip rule: if (a) or (b), don't write the comment. Write rule:
 only when (c). **Mechanical test: if the comment paraphrases the
 next ≤5 lines, delete it.** The paraphrase test is the primary
-check, and the single most effective filter against a machine-shaped
-in-function comment.
+check for an in-function comment.
 
 Doc comments on unexported symbols are opt-in, not opt-out: comment
 only when name and signature leave something a competent Go reader

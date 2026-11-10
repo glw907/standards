@@ -242,22 +242,11 @@ Bad: "The lines look wrong."
 
 **Verify with the same mode that found the issue.** If Mode 1 found
 it, run the test again. If Mode 2 found it, paste the new grid.
-Never skip verification.
 
 **Report matched to context:**
 - Verification summary (terse) when confirming a fix
 - Visual snippet when the user needs to see the layout
 - Both when closing out a visual issue
-
-### Red Flags: Stop
-
-| Thought | Reality |
-|---------|---------|
-| "I'll just change this character" | Render first. Know what's there now. |
-| "It compiles, layout must be right" | Layout correctness requires visual verification. |
-| "Looks fine at 80 columns" | Also check 120 and minimum viable (40). |
-| "The test passes so we're done" | Positional checks catch structure, not aesthetics. Look at the real terminal (Mode 3). |
-| "I can see from the code it'll work" | Render it. Code-reading is not verification. |
 
 ## Quality Checklist
 
@@ -275,7 +264,7 @@ Verify on any component before declaring it done:
   swaps (not just the active theme)
 - [ ] **Icon width**: measured with `ansi.StringWidth()`, not rune
   count or `len()`
-- [ ] **Minimum viable width**: no crash or garble at 40 columns
+- [ ] **Widths**: checked at 80 and 120 columns, and no crash or garble at the minimum viable 40
 - [ ] **Nerd Font weight**: icons match element importance, not
   arbitrary selection
 - [ ] **Whitespace budget**: every padding space and blank row is

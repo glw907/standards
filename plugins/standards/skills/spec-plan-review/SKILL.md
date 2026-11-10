@@ -12,10 +12,10 @@ description: >
 
 A review finds the defects that would cost a build or an owner sitting, and the fold applies
 them without over-engineering the document. The reviewers stay wide and the fold stays selective.
-Reviewers asked to report only high-severity issues "may follow that instruction literally and
+Reviewers asked to report only high-severity issues "might follow that instruction literally and
 report less; ask it to report everything and filter in a separate pass instead" (Opus 5 prompting
-page). Claude Code best practices name the opposite risk: "Chasing every finding leads to
-over-engineering ... flag only gaps that affect correctness or the stated requirements."
+page). Claude Code best practices name the opposite risk: "If you fix every finding, you end up
+with extra abstraction layers and tests for cases that can't happen."
 (https://code.claude.com/docs/en/best-practices). The lenses report everything, ranked by
 consequence, and the fold does the filtering.
 

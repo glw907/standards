@@ -1,6 +1,6 @@
 ---
 name: design-refinement
-description: Use when polishing an EXISTING design — a page, app screen, or artifact whose bones are approved — iterating live against a dev server, iterating async via probe pages the owner reviews on their own time, or landing a ratified design toward a benchmark finish. The refinement counterpart to origination skills (frontend-design) and port-matching skills (visual-fidelity).
+description: Use when polishing an existing design — a page, app screen, or artifact whose bones are approved — iterating live against a dev server, iterating async via probe pages the owner reviews on their own time, or landing a ratified design toward a benchmark finish. The refinement counterpart to origination skills (frontend-design) and port-matching skills (visual-fidelity).
 ---
 
 # Design refinement
@@ -13,7 +13,7 @@ last fifteen percent on your own work, and knowing when to stop.
 The failure mode this method exists to prevent has a studied name (arXiv 2605.30335, "locally
 coherent, globally incoherent"): element-by-element patches, each locally correct, that
 degrade the whole — and the study's key negative result is that adding surrounding-context
-prose to narrow patches makes results WORSE, not better. The fix is a different unit of work,
+prose to narrow patches makes results worse, not better. The fix is a different unit of work,
 not better patch prompts.
 
 Refinement carries the evaluative design vocabulary (axes, knobs, dose); it does not carry the
@@ -25,14 +25,14 @@ direction from refinement's checklists alone is how template looks slip in.
 
 ## Starting up: discover, then ask once
 
-On invocation, do not open with a questionnaire. First DISCOVER what the project already
+On invocation, do not open with a questionnaire. First discover what the project already
 holds: look for the four persistent artifacts (benchmark captures, audit ledger, decisions
 log, recorded dose words — conventionally together, e.g. `docs/design-benchmark/`), the
 design's token/style system, the review surface (a dev deployment? a preview URL?), and any
 design doc or ruling history. Read what exists; a question whose answer is discoverable
 misroutes the owner's attention.
 
-Then ask ONE batched question covering only what is genuinely owner-held and still missing —
+Then ask one batched question covering only what is genuinely owner-held and still missing —
 typically: the dose level (felt-only / standard / deep), anything off-limits this round, and
 the target's priority order if several surfaces compete. If no benchmark exists, pinning one
 is the first work item, not a question ("which state should I pin?" is only asked when the
@@ -43,8 +43,8 @@ silently absorbed.
 
 ## Three modes — pick by whether taste is still converging, never by where the owner sits
 
-The deciding predicate is the WORK's state, not the owner's presence: while the owner's
-design notes are still arriving — taste unconverged — the work is an ARC and iterations must
+The deciding predicate is the work's state, not the owner's presence: while the owner's
+design notes are still arriving — taste unconverged — the work is an arc and iterations must
 be cheap; only ratified work runs the full machinery. Routing an iterative round into the
 settled-landing pipeline because the owner reviews async is the observed expensive failure
 (three notes-adjudicate-dispatch-gate-regen cycles before the
@@ -56,10 +56,10 @@ owner named it as long, slow, and expensive loops). The full build-gate-baseline
   below; the rounds-and-passes machinery and every per-round gate stay off until settle.
 - **Async probe arc** — the owner reviews on their own time and the notes are still design
   iteration (element complaints, taste directions, "needs a redesign"). Same arc economics,
-  different medium: instead of a live tab, each round delivers a self-contained PROBE PAGE
+  different medium: instead of a live tab, each round delivers a self-contained probe page
   the owner opens whenever (see the probe-page contract below). No builder dispatches, no
   gate, no baseline regeneration per round.
-- **Settled landing** — the design is RATIFIED (the owner's verdicts are in, or the round is
+- **Settled landing** — the design is ratified (the owner's verdicts are in, or the round is
   mechanical rollout of an already-ruled vocabulary) and the work is landing or closing it.
   Run the numbered method and agent economy below as written — once per settle.
 
@@ -68,14 +68,14 @@ iterations skipped.
 
 ## The async probe arc's probe-page contract
 
-A probe page is one self-contained HTML file (data-URI images, the design's REAL tokens and
+A probe page is one self-contained HTML file (data-URI images, the design's real tokens and
 CSS inlined so the render cannot lie about type, color, or spacing), opened in the owner's
-browser (`xdg-open`), holding per region: the CURRENT state beside one or more CANDIDATE
+browser (`xdg-open`), holding per region: the current state beside one or more candidate
 treatments (before/after pairs, or an A/B/C slate for a taste fork), at the design's real
 widths, each with a one-line caption naming the change. Candidates render via captured
 screenshots plus CSS-injected variants against the deployed or dev surface — never a
 production build per candidate. The owner verdicts per region (keep / revert / push
-further / pick B); kept verdicts accumulate in the arc log and land as ONE commit batch at
+further / pick B); kept verdicts accumulate in the arc log and land as one commit batch at
 settle, where the full gate, CI-canonical baseline regeneration, and deploy run exactly
 once. The ASC register round is the proven exemplar: probe page rendered, verdict in
 minutes, one landing commit.
@@ -99,15 +99,15 @@ media if images 404 (the project's media seed script), and open the owner's
 browser at the page under iteration (`xdg-open <url>` on Linux). Then the
 per-iteration contract:
 
-1. The directing context edits DIRECTLY against the running dev server. No builder
+1. The directing context edits directly against the running dev server. No builder
    dispatches for iteration edits: a dispatch costs pre-extraction plus round-trip latency
    exceeding the edit itself, and per-tweak diff review is exactly the ceremony the owner
    banned.
-2. Direct editing does not suspend the axis rule, and the iteration unit is the ROUND, not
+2. Direct editing does not suspend the axis rule, and the iteration unit is the round, not
    the note. Invite grouped feedback and batch the open notes; a note arriving while a pass
    is in flight joins the current round, never spawns its own edit-render cycle. Translate
    each note to its design axis (emphasis, hierarchy, density, rhythm), then answer the
-   whole batch with ONE composed pass over the surface: rule the grammar (a ladder, a
+   whole batch with one composed pass over the surface: rule the grammar (a ladder, a
    scale, a reservation), state every affected element's treatment before editing, apply it
    everywhere the axes reach, render once. A per-element patch answering a per-element note
    is how the locally-coherent failure mode enters an arc, cheap probes or not. Three live
@@ -173,7 +173,7 @@ settled-landing because the owner reviews async rather than because the work is 
 Refinement is inherently iterative — an owner reviews, notes arrive, a round runs, the owner
 reviews again — and the method is designed for that loop, not for one heroic pass. Each round:
 translate the new notes to axes (step 2), run the scoped passes (step 3), read and gate (step
-5), deploy once at readiness, owner reviews. Four artifacts persist BETWEEN rounds and are the
+5), deploy once at readiness, owner reviews. Four artifacts persist between rounds and are the
 loop's memory:
 
 - **The benchmark captures** (re-pinned deliberately when the owner ratifies a new state).
@@ -184,7 +184,7 @@ loop's memory:
   re-litigate a logged decision unless the owner reopens it.
 
 Read convergence from the notes themselves: notes getting smaller and finer-grained
-(paragraph-level → pixel-level) means the loop is converging — keep going. The SAME note
+(paragraph-level → pixel-level) means the loop is converging — keep going. The same note
 recurring after an anchored fix means the unit of work is wrong — widen the pass, don't
 re-patch. Notes multiplying in new regions after each round means the rounds are shipping
 regressions — stop and audit before continuing. The arc ends when a round's notes are all
@@ -202,14 +202,14 @@ the new benchmark.
    ("this list is too loud"). Never dispatch them verbatim. Translate to a named design axis —
    hierarchy, density, rhythm, register, alignment, contrast — batch same-axis notes, and
    re-scope the work to the whole page or section on that axis. A note that recurs after one
-   anchored fix is the incoherence signature: WIDEN the regeneration unit; never layer a third
+   anchored fix is the incoherence signature: widen the regeneration unit; never layer a third
    narrow instruction.
 3. **Passes, not patches.** Structure iteration as whole-surface passes: (a) spacing,
    alignment, and hierarchy; (b) type, color, and token conformance; (c) states, interaction,
    and accessibility. Each pass covers everything in scope, so local fixes compose.
 4. **The felt-refinement audit** (the endgame): read-only designer lenses — typography and
-   rhythm; color, surface, and depth; interaction and motion — audit the DEPLOYED or built
-   state against the benchmark and return a LEDGER: every knob evaluated, marked
+   rhythm; color, surface, and depth; interaction and motion — audit the deployed or built
+   state against the benchmark and return a ledger: every knob evaluated, marked
    already-right / recommend (with the exact change and a felt-impact rating) /
    not-applicable. The calibration is binding and worth quoting verbatim in every lens prompt:
    the burden of proof is on the change, and a mostly already-right ledger is the expected
@@ -229,7 +229,7 @@ the new benchmark.
    a named level — **felt-only** (invisible-until-touched craft: selection, focus, wrapping,
    optical fixes), **standard** (felt-only plus register and rhythm corrections), or **deep**
    (standard plus composition rework within the approved bones) — one question, before the
-   pass. And the owner's design QUESTIONS ("should this have rounded corners?") are questions:
+   pass. And the owner's design questions ("should this have rounded corners?") are questions:
    they get a committed, reasoned answer before any execution. Converting an owner's
    uncertainty into a work item launders an open question into a decision nobody made.
 7. **Persist the ledger.** Commit the audit ledger beside the benchmark captures. The next
@@ -239,7 +239,7 @@ the new benchmark.
 
 ## Agent economy (who runs, on what, and why)
 
-This skill runs in the DIRECTING context — the strongest model in the room, because
+This skill runs in the directing context — the strongest model in the room, because
 adjudication, render reads, and axis translation are the judgment that prevents rework.
 Everything else is dispatched, and the dispatch is role-matched:
 
@@ -255,22 +255,22 @@ Everything else is dispatched, and the dispatch is role-matched:
   rounds. Mechanically-verifiable lenses (interaction states, reduced motion, focus coverage,
   overflow) run on a cheaper model with computed evidence required (getComputedStyle values,
   measured coordinates), which beats a stronger model's unmeasured impression anyway.
-- **Panel economy**: two or three lenses per audit, once per ARC (at the felt-refinement
+- **Panel economy**: two or three lenses per audit, once per arc (at the felt-refinement
   closer), not per round. Per-round quality lives in the directing context's own render read,
   which is cheaper and faster than any panel. Refuter agents are spent only on contested
-  MAJOR findings — never on minors, and never as votes.
+  major findings — never on minors, and never as votes.
 - **Separation is context, not model**: the grader must not share the builder's context —
-  a fresh instance of the SAME model out-grades the builder grading itself. When budget
+  a fresh instance of the same model out-grades the builder grading itself. When budget
   allows, cross-model diversity between builder and reviewer also counters correlated
   blind spots.
 - **Measure, then judge**: anything measurable (row alignment, spacing ratios, contrast,
   dot centering) gets measured by script before any agent opines on it. Agents are for the
   judgments a ruler can't make.
 - **Iterate cheap, verify real**: design iteration renders on the cheapest medium that tells
-  the truth — a standalone HTML file carrying the design's REAL tokens and CSS (so the render
+  the truth — a standalone HTML file carrying the design's real tokens and CSS (so the render
   can't lie about type, color, or spacing), or the framework's hot-reloading dev server.
   Never a full production build per adjustment; the full build, gate, and deployed-surface
-  read run ONCE per round, at readiness. Candidate exploration doubly so: present options as
+  read run once per round, at readiness. Candidate exploration doubly so: present options as
   throwaway static HTML pages, and build only the winner.
 
 ## Hard scope limits
@@ -299,7 +299,7 @@ eyebrows; modular-scale conformance; measure control (45–75ch); leading tuned 
 measure; widow and orphan prevention; text-wrap balance on headings; near-black ink and
 near-white grounds; palette constraint with tonal variation; borders via transparency rather
 than flat gray; layered low-opacity shadows; radius consistency across every framed element;
-selection color; focus-visible consistency across EVERY link family (the ones outside the
+selection color; focus-visible consistency across every link family (the ones outside the
 main prose class get missed); link underline treatment (rest translucency, hover strengthen);
 transition durations and easing; reduced-motion coverage; image aspect intent and frame
 consistency; custom list markers; asymmetric spacing that follows hierarchy; heading margins
