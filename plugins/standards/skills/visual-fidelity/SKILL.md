@@ -2,7 +2,7 @@
 name: visual-fidelity
 description: >
   The method for UI work that must match an existing reference: site rebuilds, theme ports, design
-  migrations. Invoke at the START of any port or rebuild, and when a result must match a reference rather
+  migrations. Invoke at the start of any port or rebuild, and when a result must match a reference rather
   than merely look good. Also invoke, for the "ink, not boxes" section alone, on any vertical-alignment or
   optical-centring judgment (an icon, chip, or control beside text).
 ---
@@ -17,7 +17,7 @@ fresh-context verifiers outperform self-critique). This skill is the countermeas
 ## The method, in order
 
 1. **The original manifest is the backbone** (be aggressive about reviewing the
-   original and matching ALL features and content). The original is the
+   original and matching all features and content). The original is the
    specification. Before any plan, capture every page (full-page, at the project's standard widths) and
    enumerate the original into a committed checklist: every page and section; every image
    with its identity (which asset, its crop and focal treatment, and where it appears),
@@ -32,43 +32,43 @@ fresh-context verifiers outperform self-critique). This skill is the countermeas
    them IMPROVED without per-item approval, recording what was fixed. Verifiers grade
    against the manifest, not the plan, because the plan is a lossy compression of the
    original and three builds under-matched by checking the compression.
-2. **Device catalogue.** An agent that reads images READS the references plus the
+2. **Device catalogue.** An agent that reads images reads the references plus the
    source CSS and produces the structural + typographic device catalogue: chrome anatomy,
    composition per page template, card/band recipes, every typographic device (wordmark,
-   stamps, links, quotes, code), color PLACEMENT (where each hue actually lands). Exact
+   stamps, links, quotes, code), color placement (where each hue actually lands). Exact
    values from the source, never paraphrase.
-3. **Build with the canonical loop.** The builder gets reference IMAGES (not descriptions)
+3. **Build with the canonical loop.** The builder gets reference images (not descriptions)
    plus the catalogue, and works Anthropic's canonical loop: implement, screenshot the
    result, compare to the reference, list differences, fix. Tokens transfer color and
-   faces; STRUCTURE requires building the structure — a theme layer over a mismatched
+   faces; structure requires building the structure — a theme layer over a mismatched
    scaffold cannot reach a different composition.
-4. **Fresh-context verifier gate — a LOOP, not a line.** A verifier agent that did NOT
-   build grades each page: reference and render as SEPARATE LABELED image blocks (Anthropic
+4. **Fresh-context verifier gate — a loop, not a line.** A verifier agent that did not
+   build grades each page: reference and render as separate labeled image blocks (Anthropic
    vision docs; composite images are unproven), per width, verdict per visual device,
    differences classified COSMETIC vs STRUCTURAL. On FAIL: a fix agent works the list, and
-   then a FRESH verifier grades the fixed state — a fix agent confirming its own fixes is
+   then a fresh verifier grades the fixed state — a fix agent confirming its own fixes is
    the self-grading failure one level down (fix agents have been seen doing exactly
    this, and each needed an independent recheck). The loop exits only on a
    fresh PASS. In workflow scripts: while-not-PASS around verify->fix, never verify->fix->
    done.
-5. **The one-check rule (deploy gate).** The main loop READS the final renders itself, and
+5. **The one-check rule (deploy gate).** The main loop reads the final renders itself, and
    a member/user-facing site gets the owner's before/after approval. Nothing deploys
    unlooked-at. Deploy watchers verify the run's exact head sha (stale greens happen).
 6. **Pixel-diff CI rider.** After fidelity is achieved, freeze it: Playwright
    `toHaveScreenshot` specs at the project's standard widths in the site's own CI, baselines rendered
-   by the canonical CI runner (never trust a local render as canonical; regen by FILE PATH,
+   by the canonical CI runner (never trust a local render as canonical; regen by file path,
    not title grep — a grep that can't fail verifies nothing).
 
 7. **Iterate the chassis after every use.** Each theme or site built
    on the chassis ends with a harvest step: every friction, missing seam, needed recipe,
-   exposed coupling, and lying removal note folds back into the STARTING CHASSIS (the
+   exposed coupling, and lying removal note folds back into the starting chassis (the
    canonical copy the next theme receives) as landed improvements, and into the underlying library
    where the lesson runs deeper. The chassis gets better with every consumer; a build is
    not done until its harvest is banked.
 
 ## Known anti-patterns (each cost a real deploy)
 
-- The official frontend-design skill is for ORIGINAL aesthetics; it has no
+- The official frontend-design skill is for original aesthetics; it has no
   reference-comparison step. Do not reach for it on a port.
 - "Zero chrome edits needed" on a non-blog design is a failure signature, not a win.
 - Instrumental goals (test the seams) never outrank the terminal goal (the site looks
@@ -79,14 +79,14 @@ fresh-context verifiers outperform self-critique). This skill is the countermeas
 ## Ink, not boxes (the vertical-alignment blind spot)
 
 Born from a vertical-alignment pass: three audit rounds, a probe condemned
-three times, and the same root error in two disguises. Read this section for ANY vertical
+three times, and the same root error in two disguises. Read this section for any vertical
 alignment judgment, not only a port. This defect class is authored, not ported: the three
 rows the pass finally confirmed had been 2.5px wrong since the day they were written,
 through every green test run.
 
 **Why this one is different from every other visual defect.** Horizontal alignment is
 box-level, and boxes are what CSS talks about and what `getBoundingClientRect` returns, so
-reasoning from source lands close to reality. Vertical alignment is INK-level: the eye
+reasoning from source lands close to reality. Vertical alignment is ink-level: the eye
 centres a glyph's visual mass, CSS centres its line box, and an SVG's drawn art sits wherever
 it sits inside a viewBox that centres perfectly. Every layer of the stack is box-shaped and
 the judgment is ink-shaped. There is no doubt signal, because `items-center` reads as its own
@@ -94,20 +94,20 @@ confirmation, which is why this survives review and gets fixed instantly once so
 
 **The four rules, each one earned:**
 
-1. **Compare against what the composition DECLARED.** Both major errors in that pass were the
+1. **Compare against what the composition declared.** Both major errors in that pass were the
    same shape: measuring a member against a target the CSS never asked for (a wrapping block's
-   first line, then a baseline) on rows that declared `align-items: center` and ACHIEVED it.
+   first line, then a baseline) on rows that declared `align-items: center` and achieved it.
    Read the container's alignment before judging any vertical relationship. The defect is
    deviation from the declared intent, never from an assumed one.
-2. **Measure ink where the eye is the judge.** `getBBox()` is the GEOMETRY box, not the
+2. **Measure ink where the eye is the judge.** `getBBox()` is the geometry box, not the
    painted box, so a `fill="none"` spacer path inflates it to the full viewBox. Union only
-   what actually paints, map through the screen CTM, and MARK any element-box fallback so it
+   what actually paints, map through the screen CTM, and mark any element-box fallback so it
    is never passed off as ink.
-3. **A padded chip is a BOX, not a text run.** Scoring one `text-beside-text` and comparing
-   BASELINES manufactures a defect equal to the cap-height ratio. The converse of the
+3. **A padded chip is a box, not a text run.** Scoring one `text-beside-text` and comparing
+   baselines manufactures a defect equal to the cap-height ratio. The converse of the
    mixed-size rule is equally true and is the half everyone forgets: a mixed-size pair sharing
-   a CENTRE has baselines that diverge by design.
-4. **Read type metrics off the element that OWNS THE LINE BOX**, never an ancestor container
+   a centre has baselines that diverge by design.
+4. **Read type metrics off the element that owns the line box**, never an ancestor container
    and never the first text node's parent. A 10px `<span>` leading a 24px `<h2>` will resolve
    every font metric wrong and report a broken row as clean.
 
@@ -119,12 +119,12 @@ and that belongs in the measuring tool's contract rather than an auditor's discr
 
 **Two gate lessons that generalize past alignment:**
 
-- **An approved snapshot baseline certifies STABILITY, never correctness.** A defect that
+- **An approved snapshot baseline certifies stability, never correctness.** A defect that
   ships before the baseline is written becomes the baseline, and no amount of green can ever
   surface it. Never cite a passing visual suite as evidence a composition is right.
 - **Conformance verification cannot find a wrong premise.** Three adversarial verifiers found
-  14 real defects, 8 in the reports-green-on-broken direction, and ALL THREE missed the
+  14 real defects, 8 in the reports-green-on-broken direction, and all three missed the
   premise error, because each was handed the spec's traps as ground truth and asked "does this
   conform?" Only the auditor asked "is this trustworthy?" and only the auditor caught it. Any
   verification fan-out needs at least one agent whose question is whether the whole thing is
-  RIGHT, not whether it matches the brief that produced it.
+  right, not whether it matches the brief that produced it.

@@ -31,7 +31,7 @@ backend adapters, worker goroutines, stdin/stdout filters, or the
 bootstrap wiring that runs before `tea.NewProgram`; goroutines and
 mutexes are normal there.
 
-Existing nested-model code migrates in its repo's refactor pass; new code follows these rules now.
+Existing nested-model code migrates in its repo's refactor pass; new code follows these rules.
 
 ## Rule 1: One Model, Components Are Plain Structs
 

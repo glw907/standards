@@ -43,14 +43,14 @@ capturable (`-t dark|light`). Nothing appears on the owner's screen and
 no focus is stolen, because the display is not the owner's.
 It drives a long-running full-screen program correctly: start it, send
 keys, clicks, wheel, and resize against the live process across many
-`shot:` steps, then quit it, all inside one invocation. Set an
-app-specific default through `-c` (for example, point the command at an
-isolated XDG store so a second instance never fights the real one's lock).
+`shot:` steps, then quit it, all inside one invocation. `-c` is required
+and names the app to drive. Point the command at an isolated XDG store, for
+example, so a second instance never fights the real one's lock.
 The host's ImageMagick has no X11 delegate and the GNOME screenshot portal
 is denied or interactive, so no on-desktop route exists to fall back on.
 
 ```
-kitty-headless-shot [-o OUTDIR] [-t dark|light] [-s COLSxROWS] [-c CMD] STEP...
+kitty-headless-shot [-o OUTDIR] [-t dark|light] [-s COLSxROWS] -c CMD STEP...
   key:K           one character, or a kitty key name (escape, down)
   type:TEXT       literal text
   click:COL,ROW   left click on a cell, 1-based
@@ -60,42 +60,8 @@ kitty-headless-shot [-o OUTDIR] [-t dark|light] [-s COLSxROWS] [-c CMD] STEP...
   shot:NAME       OUTDIR/NAME.png + NAME.ansi, size appended to sizes.txt
 ```
 
-Every design choice in it was forced by a failure on the day:
-
-- **Input goes through kitty's remote control into the pty**
-  (`kitten @ send-text`, `send-key`), never through X (`xdotool key`,
-  `click`). X-level input needs focus; when focus is elsewhere the
-  keystrokes land in whatever window has it, which can be the owner's
-  live session. Shifted keysyms dropped intermittently even when focus
-  was right.
-- **A click is the SGR 1006 report bytes** (`ESC [ < 0 ; col ; row M`
-  then `m`) written to the pty. Prove once per platform that a real
-  click produces exactly those bytes (`printf '\e[?1002h\e[?1006h';
-  cat -v` in the window, then a real click) and the injection is a
-  faithful stand-in; the app cannot tell the difference. Wheel is
-  button 64/65.
-- **`window_padding_width=0`.** kitty counts the owner's padding
-  inside a cell-unit resize, so 59x24 arrived as 56x22 and every
-  rung-boundary label was a lie. Read the true grid back
-  (`kitten @ ls`) after each resize and write it beside the capture.
-- **Pixels, not the ANSI dump, for grounds.** `kitten @ get-text`
-  omits blank cells, so a fully painted base ground reads as empty.
-  Sample with `convert shot.png -format '%[pixel:p{x,y}]' info:`.
-  An eye on a PNG misjudged the slate base as the terminal's own
-  background; the pixel sampler refuted it in one call.
-- **Keep the window alive after the app exits** (`$cmd; sleep 600`),
-  or the final "did it quit cleanly" shot captures nothing.
-- **Never `pkill -f` with a string that appears in your own command
-  line.** It kills the shell running the harness (exit 144). Use
-  `pkill -x` on the binary name, or iterate `pgrep -x` and spare the
-  owner's pid.
-- **A stale instance holds the lock.** If the window closes at once,
-  check for an earlier instance against the same store before
-  blaming the app.
-- **Labels come from the screen, never from a key count.** A matrix
-  that names captures by how many `n` presses it sent is wrong the
-  first time one drops. Read the state off the capture (the app's own
-  status row) and fail the run on a mismatch.
+Every design choice in the script was forced by a failure on the day. The reasons sit in
+the header of `bin/kitty-headless-shot`, beside the code each one shaped.
 
 ## The matrix
 
