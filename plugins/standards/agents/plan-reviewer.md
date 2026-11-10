@@ -70,6 +70,8 @@ On a plan, also check these items:
   it and how, under the pass's worktree isolation.
 - The close reruns the docs gate after the last docs edit.
 - A pre-flight check on a credential exercises each scope the run writes with, not only a read.
+- Each skill a task names loads through the Skill tool: a skill whose frontmatter sets
+  `disable-model-invocation` is a `[you]` step, or the plan changes the skill before launch.
 - A check in a clean container names how the session logs in and what replaces each workstation-only
   command it calls.
 - Every bar in a plan is one a real pass can meet: an all-items check over free-form answers states
