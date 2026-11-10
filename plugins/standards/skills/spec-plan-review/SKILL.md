@@ -67,10 +67,11 @@ reviewers write only their output file,
 One fold agent (`claude-opus-5-5`) takes every review file. It follows `standards:receiving-code-review`: it verifies a finding before acting on
 it and never agrees performatively. It writes a fold record with one disposition per finding:
 folded (where the revision carries it), refused (a one-line reason), or owner fork.
+An unattended fold records an unclear finding as refused or as an owner fork, and never stops to ask.
 
-- The fold filters. It drops every `optional` finding, in the best-practices page's words: "flag
-  only gaps that affect correctness or the stated requirements, and treat the rest as optional"
-  (<https://code.claude.com/docs/en/best-practices>). It folds the `correctness` findings, and it
+- The fold filters. It drops every `optional` finding, since the best-practices page warns that "If you
+  fix every finding, you end up with extra abstraction layers and tests for cases that can't
+  happen" (<https://code.claude.com/docs/en/best-practices>). It folds the `correctness` findings, and it
   may refuse a finding whose fix costs more than the risk it removes. Convergent findings from
   several lenses fold once, at the root.
 - The fold probes every new mechanism it introduces: it quotes the docs or source, or runs a probe,

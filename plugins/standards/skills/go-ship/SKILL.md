@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 Simplify, commit, push, and install a Go project in one pass. Go
 conventions are enforced by the `go-conventions` skill plus project
-hooks. No separate review step.
+hooks. No separate review step: invoking this skill is the choice to skip the close review.
 
 ## Pipeline
 
