@@ -46,7 +46,7 @@ One session executes. It works in a worktree cut for the pass, runs the reposito
 - **Pairs.** Two tasks with disjoint files go to two subagents, each in its own worktree cut from the session's latest commit. Each runs the setup command first, commits, and never pushes. The session merges both, runs the fast lane, and pushes. A merge conflict stops the line.
 - **Judgment calls.** Make routine calls inside the approved design, budget, and scope yourself, and record each in the pull request under `## Decisions`: the call, the choice, the alternative, and the reason. Stop and ask only for spend past the budget, an irreversible or destructive act, a secret, a change of scope or design, or a product or taste call the design left open.
 - **Scope.** Work found mid-task goes to the backlog and the pull request body. It does not go into the task in flight, unless the task would otherwise build on something known to be wrong.
-- **Clock.** If a task passes twice its estimate, stop and say so rather than push on.
+- **Clock.** A task that passes twice its estimate gets one line in the pull request's `## Decisions`, naming the estimate and the actual, and the run goes on.
 
 ## Close
 

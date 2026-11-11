@@ -59,7 +59,6 @@ On a plan, also check these items:
   sends all three to the owner as asks before the first launch, never as settled facts.
 - An eval fixture that runs a type check says what that check needs first, such as a built `dist`,
   and the heap it needs on the lane that runs it.
-- A rule that counts a denied command as a fault says when a session that recovers still counts.
 - A long-lived branch the pass maintains from worktrees, such as a preview branch, names who updates
   it and how, under the pass's worktree isolation.
 - The close reruns the docs gate after the last docs edit.
@@ -81,6 +80,8 @@ On a plan, also check these items:
 - The dependency map runs each name a task changes through a grep of the tests and generated
   checks, and every file that pins the name is in that task's file list.
 - A plan never reads a credential by another path after a refusal; a refused read is a stop.
+- A deletion target that is a symlink resolving outside the executor's `--add-dir` set is a step
+  for the owner, never a task: the prompt it raises has no one to answer it in an unattended run.
 - Every mechanism of existing code that the design or plan asserts (where a file lives, how an
   auth flow binds a token, what a permission can read, what a consumer loads, what a release step
   packs) carries the `file:line` that shows it.
