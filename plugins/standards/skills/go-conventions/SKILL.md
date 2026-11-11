@@ -13,7 +13,8 @@ description: >
 # Go Conventions
 
 Rules for writing Go utilities. Code follows
-**Effective Go**; comments follow **Go Doc Comments**
+**Effective Go** and **Go Code Review Comments**
+(https://go.dev/wiki/CodeReviewComments); comments follow **Go Doc Comments**
 (https://go.dev/doc/comment). The linters are **gofmt** and **go vet**,
 both wired into `make check`. The canonical exemplar is **the Go standard
 library**: read the doc comments next to the code you are writing and
@@ -54,7 +55,7 @@ Reject these forms, which carry habits from other languages into Go:
 - **Constants for strings used once.** Inline them.
 - **Package-level init() functions.** Avoid. Pass dependencies explicitly.
 - **`interface{}` instead of `any`.** Go 1.18+; `any` is canonical.
-- **Vague package names.** Beyond the guide's list, never name a package
+- **Vague package names.** Beyond Code Review Comments' list, never name a package
   `utils`, `helper`, or `shared`. Name by what it provides:
   `atomicfile`, `timeparse`.
 - **`[]T{}` for an empty slice.** Where the nil/empty distinction
