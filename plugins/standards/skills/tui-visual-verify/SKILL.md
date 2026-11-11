@@ -75,6 +75,17 @@ offline) through the repo's fixture viewer; the degrade profiles; and
 the ratified exemplar painted by the same terminal as the reference
 image. Write a manifest that says what each capture claims to show.
 
+**Spot check.** A small edit takes one screenshot in place of the
+matrix: one surface, in the owner's default theme, at the owner's real
+window size, painted by `kitty-headless-shot`. A small edit stays on one
+surface and changes no color or theme value, layout or resize rung,
+glyph, pointer binding, or state that only the fixture viewer reaches.
+A label, a column's content, or a key's help text qualifies. Any other
+change runs the matrix. The main loop reads that one screenshot itself,
+with no grader fan-out. This is the one exception to the rule that a
+context that did not build the change verifies the claim, and to
+"the builder never grades" below.
+
 ## Grading
 
 Follow `visual-fidelity`: the builder never grades. Fan out
