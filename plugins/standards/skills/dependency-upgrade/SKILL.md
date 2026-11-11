@@ -24,7 +24,9 @@ been ruled take-now or filed, the held majors carry a trigger, and the full gate
 Standing rules: take every minor and patch and the non-major
 `npm audit fix` results without asking; always ask before a major; every bump carries a
 survey; every upgrade carries a refactor decision; a release starts from the newest production
-version of everything.
+version of everything. A project its owner has put on a timed update schedule takes its routine
+updates on that schedule, outside this skill; a feature pass or a failed update there comes back
+to this skill.
 
 ## Procedure
 
