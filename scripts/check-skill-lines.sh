@@ -4,9 +4,10 @@
 # Line cap: any SKILL.md over 500 lines, the length Anthropic's skill authoring guidance sets.
 #
 # Word cap: each file in WORD_CAPS over its word count (wc -w over the whole file), and a capped
-# file that is absent, so a rename cannot drop a cap silently. The two caps come from the pass
-# process design of 2026-11-10: the plan review skill stays short, and the reviewer agent stays
-# at its size, so a checklist item goes in only when one comes out.
+# file that is absent, so a rename cannot drop a cap silently. The first two caps come from the
+# pass process design of 2026-11-10: the plan review skill stays short, and the reviewer agent
+# stays at its size, so a checklist item goes in only when one comes out. The third comes from the
+# stack pilots design of 2026-11-10, which measures the Go skill in words per load.
 set -uo pipefail
 cd "${1:-$(dirname "$0")/..}" || exit 2
 
@@ -14,6 +15,7 @@ cd "${1:-$(dirname "$0")/..}" || exit 2
 WORD_CAPS=(
   "plugins/standards/skills/spec-plan-review/SKILL.md 600"
   "plugins/standards/agents/plan-reviewer.md 1300"
+  "plugins/standards/skills/go-conventions/SKILL.md 1400"
 )
 
 status=0
