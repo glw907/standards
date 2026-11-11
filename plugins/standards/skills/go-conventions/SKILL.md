@@ -13,7 +13,8 @@ description: >
 # Go Conventions
 
 Rules for writing Go utilities. Code follows
-**Effective Go**; comments follow **Go Doc Comments**
+**Effective Go** and **Go Code Review Comments**
+(https://go.dev/wiki/CodeReviewComments); comments follow **Go Doc Comments**
 (https://go.dev/doc/comment). The linters are **gofmt** and **go vet**,
 both wired into `make check`. The canonical exemplar is **the Go standard
 library**: read the doc comments next to the code you are writing and
@@ -44,9 +45,6 @@ Reject these forms, which carry habits from other languages into Go:
   channels unless there is measured concurrency to exploit.
 - **Builder patterns / functional options.** Use a plain config struct.
   `NewFoo(cfg Config)` not `NewFoo(WithBar(...), WithBaz(...))`.
-- **Deep nesting.** Return early. Guard clauses, not if/else chains.
-  Never use `else` after a block that unconditionally exits (`return`,
-  `panic`, `continue`).
 - **Error types as classes.** A struct with `Error() string` is enough.
   No error hierarchies, no `errors.New` wrappers that add nothing.
 - **Overuse of generics.** Concrete types unless the function operates
@@ -56,22 +54,12 @@ Reject these forms, which carry habits from other languages into Go:
   boundaries (user input, external API responses).
 - **Constants for strings used once.** Inline them.
 - **Package-level init() functions.** Avoid. Pass dependencies explicitly.
-- **`this`, `self`, or `me` as receiver names.** Use a short abbreviation
-  of the type name: `func (e *Entry)`, not `func (self *Entry)`.
-- **`Get` prefix on getters.** The exported first letter already signals
-  accessor. Write `Name()` not `GetName()`.
 - **`interface{}` instead of `any`.** Go 1.18+; `any` is canonical.
-- **`SCREAMING_SNAKE_CASE` constants.** Go uses `MixedCaps` for all
-  identifiers including constants: `MaxEntries`, not `MAX_ENTRIES`.
-- **Vague package names.** Never name a package `util`, `utils`,
-  `common`, `helper`, `shared`, or `misc`. Name by what it provides:
+- **Vague package names.** Beyond Code Review Comments' list, never name a package
+  `utils`, `helper`, or `shared`. Name by what it provides:
   `atomicfile`, `timeparse`.
-- **`context.Context` stored in a struct.** Pass it as the first
-  function parameter. Storing it makes lifetime ambiguous and breaks
-  cancellation propagation.
-- **`[]T{}` for an empty slice.** Prefer `var t []T` (nil slice) when
-  no elements are being added immediately. Use `[]T{}` only when the
-  nil/empty distinction matters at a JSON or API boundary, and comment why.
+- **`[]T{}` for an empty slice.** Where the nil/empty distinction
+  matters at a JSON or API boundary, comment why.
 
 ## Modern Stdlib Idioms
 
@@ -180,12 +168,10 @@ if errors.As(err, &pe) { ... }
 ```
 
 Rules:
-- **Lowercase, no trailing period.** The error appears mid-sentence
-  in caller logs. Capitalize only a proper noun, an acronym, or a
+- **Capitals.** Beyond a proper noun or an acronym, capitalize only a
   package name used as the prefix.
 - **Context-first.** Noun-verb form: `"load config"`, `"create
-  directory"`, or a package prefix: `"json: unknown field %q"`. Never
-  start with `"failed to"`.
+  directory"`. Never start with `"failed to"`.
 - **`%w` only when callers branch on the sentinel.** Use `%w` if
   any caller calls `errors.Is` / `errors.As` on the result.
   Otherwise `%v` or omit wrapping. Reflexive `%w` exposes the
@@ -195,8 +181,6 @@ Rules:
   noun, context prefix, or operation-name inline.
 - **No function name in its own errors.** The call stack provides
   it. State the condition, not the location.
-- **Custom error types include location context** (File, Line) when
-  the call stack alone isn't sufficient.
 - Library functions return errors. Only `main()` prints them.
 - Status messages (not errors) go to `os.Stderr`.
 
@@ -216,103 +200,12 @@ Directory permissions: 0755. Plain files: 0644. Sensitive files: 0600.
 
 ## Testing
 
-### Unit Tests
-
-- Same package as source (not `_test` package).
-- Table-driven with `[]struct{ name, input, expected }`.
-- Sub-tests: `t.Run(tt.name, func(t *testing.T) { ... })`.
-- No third-party assertion libraries. Use `t.Errorf` / `t.Fatalf`
-  with `strings.Contains` and direct comparison.
-- Test error paths explicitly. They are first-class tests.
-
-### Assertion Discipline (no useless tests)
-
-For every test, ask: "what would have to be wrong about the code
-under test for this test to fail?" If the answer is "nothing
-realistic," the test is theatre. Specific anti-patterns to reject
-on sight:
-
-- **Silent-success fakes.** A fake/mock whose mutation methods
-  (`Send`, `Append`, `Copy`, `CreateDraft`, …) always `return nil`
-  makes every error-path test in the suite trivially pass. Rule:
-  any fake method that models a fallible production call gets a
-  per-method `*Err error` field; the fake consults it on call;
-  error-path table rows set it. Extend the shared fake, not the
-  call sites.
-- **Self-derived expectations.** Computing `want` from the system
-  under test (`wantCol := m.popover.width()`) tests that a function
-  equals itself. Hard-code the expected value, or derive it from
-  inputs the test owns.
-- **Trivially-true style assertions.** `style.Render("x") != ""`
-  passes for the zero-value `lipgloss.Style{}`, asserting nothing
-  about styling. Assert the resolved attribute instead:
-  `style.GetForeground() == expected`, `style.GetBold()`, etc.
-  (See `elm-conventions` for the bubbletea-specific tells.)
-- **Cmd-shape assertions that don't invoke.** `if cmd != nil`
-  proves the function returned *something*, not that the right
-  thing happened. Invoke the cmd, type-switch on the resulting
-  `tea.Msg`, assert the message's payload.
-- **Skipped placeholder tests.** A `t.Skip("implement later")`
-  at the top of a test function body is green CI signal with
-  zero coverage. Either write the assertion or delete the
-  function. Conditional skips (env-gated integration tests,
-  GOOS-specific tests, missing-fixture guards) are fine.
-- **Goldens are last-resort.** Snapshot tests catch *that*
-  output changed, not *what* should have changed. Mutation
-  testing fights them. Use goldens only for high-fidelity render
-  surfaces where the value is the literal bytes; for everything
-  else, assert on parsed structure.
-
-The strong signal for assertion meaningfulness is mutation
-testing. Surviving mutants are tests that can't tell correct code
-from broken code. Treat them as bug reports against the test
-suite, not the source.
-
-### End-to-End Tests
-
-- Package `e2e` in an `e2e/` directory.
-- `TestMain` builds the binary once into a temp dir.
-- All tests exec the real compiled binary.
-- `testEnv` struct carries dir, config path, etc. No globals.
-- `t.TempDir()` for all test directories.
-- Helper functions: `run`, `runErr`, `runWithStdin`.
-
-### Golden Tests (when applicable)
-
-- Golden files in `e2e/testdata/golden/`.
-- `--update-golden` flag to regenerate from an oracle.
-- Normalization functions to handle acceptable differences.
+Before writing or changing a test, read [references/testing.md](references/testing.md).
 
 ## Build System
 
-Makefile with these targets:
-
-```makefile
-BINARY := tool-name
-
-build:   go build -o $(BINARY) ./cmd/tool-name
-test:    go test ./...
-vet:     go vet ./...
-lint:    golangci-lint run ./...
-install: go install ./cmd/tool-name
-check:   vet lint test
-clean:   rm -f $(BINARY)
-```
-
-`make check` is the gate before committing, and every step in it
-gates. A check either gates or does not exist. Never guard a step
-with `command -v tool || echo "skipping"`: that turns a missing or
-misconfigured tool into a green build, and the gate then decays
-silently for months. If a tool is required, let its absence fail
-loudly. If reproducible tool versions matter, pin them in a
-separate `tools/go.mod` and invoke them with `go run -C tools`,
-which keeps the product module's dependency graph clean.
-
-No code generation and no CGO. No build tags in product code; a
-test-only tag (for example `perf`) is allowed when the gate runs `go vet`
-and the tests under that tag too, so the tagged files do not rot.
-
-The lint config (`.golangci.yml`, linters, and the v2 schema traps) is in
+Before writing or changing a Makefile, a gate, or the lint config, read
+[references/build.md](references/build.md) and
 [references/linting.md](references/linting.md).
 
 ## Dependencies
@@ -325,9 +218,6 @@ The lint config (`.golangci.yml`, linters, and the v2 schema traps) is in
 
 ## Naming
 
-- Short names in narrow scope: `f`, `cfg`, `err`, `ok`.
-- Descriptive names for exports: `NewClient`, `WriteFile`.
-- `NewX()` constructor pattern.
 - Unexported types use short names: `day`, `flags`, `rule`.
 - Boolean fields: positive sense (`Encrypt`, not `NoEncrypt`).
   Use `*bool` for optional overrides.
