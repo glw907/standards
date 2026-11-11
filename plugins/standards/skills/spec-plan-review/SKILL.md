@@ -51,3 +51,12 @@ and records a disposition for each: folded, refused with a one-line reason, or o
 - A finding that changes the approved design returns to the owner as one batched question.
 - A revision that changes a ratified document's meaning records an owed erratum.
 - Commits are path-limited, never `git add -A`.
+
+## Common mistakes
+
+| Mistake | Fix |
+| --- | --- |
+| Reviewer prompt filters severity up front | Ask it to report everything, ranked; the fold filters |
+| Fold accepts every finding | Refusal is a valid disposition; cost against risk, one line |
+| Fold picks an answer to an owner fork | It consolidates and recommends; the owner rules |
+| Reviewer or fold reasons from memory | Scratch module, probe, or a quoted doc line, cited |
