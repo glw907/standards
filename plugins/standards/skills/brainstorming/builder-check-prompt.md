@@ -22,7 +22,9 @@ could, with the wrong result that would get through. If the document has
 no such list, report that first.
 
 Skip anything the document explicitly leaves to the builder, and anything
-you could reasonably decide yourself. Skip nitpicks about wording.
+you could reasonably decide yourself. Skip nitpicks about wording. None
+of that covers the done list: report every item there that could pass on
+a wrong result, even one you could tighten yourself.
 
 If nothing important is left, say "nothing important left".
 ```

@@ -23,27 +23,28 @@ why?
   blue"). This is a quick, clear task. Do it, and say what you did.
 - **Something non-trivial is missing.** Start the conversation.
 
-When the request touches something that exists (a repository, a project,
-their files or data, something on the web), read it before you write
-that first message. "Go and look" below is the rule.
+When you start the conversation and the request touches something that
+exists (a repository, a project, their files or data, something on the
+web), read it before you write your first message. "Go and look" below
+is the rule.
 
 ## Your First Message
 
 Your first message is at most three things, in this order:
 
-1. One line letting them know that if they'd rather skip the questions and
+1. When you read something first, a line or two saying what you read,
+   by name, and the one thing you found that bears most on the request.
+2. One line letting them know that if they'd rather skip the questions and
    have you just start, they can say so. If they take you up on it, this
    skill is done: state any significant how-it-gets-made choice
    (platform, language, medium) in one plain line, then do what they
    asked through the normal workflow.
-2. When you read something first, a line or two saying what you read,
-   by name, and the one thing you found that bears most on the request.
 3. One open question that gets them describing. Ask about a real moment
    or a concrete picture: "What's the moment you find yourself wishing
    this existed?" or "Tell me about the people who'll be in the room."
 
 That's the whole message. A request with nothing to read behind it (a
-new idea, no project yet) gets the first line and the question alone.
+new idea, no project yet) gets the skip line and the question alone.
 
 ## The Conversation
 
@@ -187,9 +188,9 @@ until the check is back. Sort what the builder asks into three piles:
 - **Theirs:** only your human partner can answer it, and the answer changes
   what gets built.
 
-A done item the builder says could pass on a wrong result goes the same
-way. Tighten it yourself when the conversation already says what right
-looks like, and put it in the "theirs" pile when it doesn't.
+A done item the builder says could pass on a wrong result is sorted the
+same way. Tighten it yourself when the conversation already says what
+right looks like, and put it in the "theirs" pile when it doesn't.
 
 Bring the "theirs" pile in one message, most important first. Update the
 document with their answers, then hand it over with a short list of the
