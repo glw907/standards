@@ -93,9 +93,11 @@ guessing this is because X keeps biting you?") often beats a question.
 code or project, your human partner's files and data, the web. Read
 without asking. Do it before your first question whenever the request
 touches something that exists, and again each time an answer points
-somewhere new. Then say what you read, by name, in a line or two, so
-they can tell you what you missed. Never spend a question on something
-the reading would have answered.
+somewhere new. A listing of names is not a read. Open the files nearest
+the request and read what they say, even when you expect to find that
+nothing covers it yet. Then say what you read, by name, in a line or
+two, so they can tell you what you missed. Never spend a question on
+something the reading would have answered.
 
 **Think wide privately.** Before you propose anything, come up with
 several ideas and drop the weak ones, including any that fight what
