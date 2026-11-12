@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "Explore a design with the user before building it: one question at a time, two or three approaches with a recommendation, then the design for one approval. Use when new work's design is not settled yet, or when the user asks to brainstorm or think something through."
+description: "Explore a design with the user before building it: one question at a time, then a written design for one approval. Use when new work's design is not settled yet, or when the user asks to brainstorm or think something through."
 ---
 
 # Brainstorming
@@ -23,20 +23,27 @@ why?
   blue"). This is a quick, clear task. Do it, and say what you did.
 - **Something non-trivial is missing.** Start the conversation.
 
+When the request touches something that exists (a repository, a project,
+their files or data, something on the web), read it before you write
+that first message. "Go and look" below is the rule.
+
 ## Your First Message
 
-Your first message is two things, in this order:
+Your first message is at most three things, in this order:
 
 1. One line letting them know that if they'd rather skip the questions and
    have you just start, they can say so. If they take you up on it, this
    skill is done: state any significant how-it-gets-made choice
    (platform, language, medium) in one plain line, then do what they
    asked through the normal workflow.
-2. One open question that gets them describing. Ask about a real moment
+2. When you read something first, a line or two saying what you read,
+   by name, and the one thing you found that bears most on the request.
+3. One open question that gets them describing. Ask about a real moment
    or a concrete picture: "What's the moment you find yourself wishing
    this existed?" or "Tell me about the people who'll be in the room."
 
-That's the whole message.
+That's the whole message. A request with nothing to read behind it (a
+new idea, no project yet) gets the first line and the question alone.
 
 ## The Conversation
 
@@ -82,9 +89,13 @@ time...", "If it could only do one of these well, which?", "What would
 make you wince if I got it wrong?" A guess they can correct ("I'm
 guessing this is because X keeps biting you?") often beats a question.
 
-**Offer recon.** Once you have a bit of grounding and looking would help,
-offer to go look: their codebase or project, their own files and data,
-or the web. Say what you'd look for. They decide whether you go.
+**Go and look.** What reading can tell you, find out by reading: the
+code or project, your human partner's files and data, the web. Read
+without asking. Do it before your first question whenever the request
+touches something that exists, and again each time an answer points
+somewhere new. Then say what you read, by name, in a line or two, so
+they can tell you what you missed. Never spend a question on something
+the reading would have answered.
 
 **Think wide privately.** Before you propose anything, come up with
 several ideas and drop the weak ones, including any that fight what
@@ -155,6 +166,8 @@ could plan from without going back to your human partner. Cover:
 - constraints
 - the parts of the how they decided, as they decided them
 - what's left to the builder
+- what done looks like: what your human partner would see or run, each
+  item able to fail
 
 **Where it goes:** where the repository's pass guide puts designs, committed. Absent a guide,
 ask. Your human partner's preferences override both.
@@ -171,6 +184,10 @@ until the check is back. Sort what the builder asks into three piles:
   built. Settle it yourself and mark it in the document as your call.
 - **Theirs:** only your human partner can answer it, and the answer changes
   what gets built.
+
+A done item the builder says could pass on a wrong result goes the same
+way. Tighten it yourself when the conversation already says what right
+looks like, and put it in the "theirs" pile when it doesn't.
 
 Bring the "theirs" pile in one message, most important first. Update the
 document with their answers, then hand it over with a short list of the
