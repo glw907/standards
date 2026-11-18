@@ -29,7 +29,7 @@ Before you start implementing, you must, in order:
    human partner pick one (see Lay out the approaches).
 2. Write the design doc, short or full (see Size the Work).
 3. Get their approval of that doc.
-4. Plan it: for software, follow `standards:running-passes` "Plan" and the
+4. Plan it: for software, follow `standards:running-passes` and the
    repository's pass guide.
 
 If nothing is open when you write your first message and there's one
@@ -54,14 +54,14 @@ they've already decided.
 
 ## Your First Message
 
-Move the work forward, with one of these:
+When you read first, name what you read in a line, so they can tell you
+what you missed. Then move the work forward, with one of these:
 
 - **They've already said what they want** (a spec, a plan, a detailed
   request): aim for about 200 words for the whole message. Echo their
   request back in your own words, so they can see whether you've got its
   shape: what they want, who it's for, and why, as far as they've said.
-  Name what you read, so they can tell you what you missed, and add what
-  you found that bears on it: how the relevant parts work today
+  Add what you found that bears on it: how the relevant parts work today
   and what the change would touch. If you found something they may not
   have considered that would change what they're asking for or how it
   has to be built, like a constraint, a conflict, or a cheaper path, say
@@ -271,14 +271,14 @@ until the check is back. Sort what the builder asks into three piles:
 - **Theirs:** only your human partner can answer it, and the answer changes
   what gets built.
 
+A done item the builder says could pass on a wrong result is sorted the
+same way. Tighten it yourself when the conversation already says what
+right looks like, and put it in the "theirs" pile when it doesn't.
+
 Bring the "theirs" pile in one message, most important first. Update the
 document with their answers, then hand it over with a short list of the
 calls you made so they can check those while reading. That's the only
-round of questions the check produces.
-
-A done item the builder says could pass on a wrong result is sorted the
-same way. Tighten it yourself when the conversation already says what
-right looks like, and put it in the "theirs" pile when it doesn't. Without a subagent tool, read the
+round of questions the check produces. Without a subagent tool, read the
 document as that builder yourself.
 
 <HARD-GATE>
