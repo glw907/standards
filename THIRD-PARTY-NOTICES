@@ -128,6 +128,7 @@ Source: https://github.com/obra/superpowers
 Commit: 22f0b463e7a5
 License: MIT
 Copyright (c) 2025 Jesse Vincent
+Modified: SKILL.md is rewritten here, visual-companion.md has three sections removed, and the files under scripts/ have upstream's brand and telemetry code removed.
 
 Skill: receiving-code-review
 Source: https://github.com/obra/superpowers
