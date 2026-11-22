@@ -14,8 +14,8 @@ verdict, you do not edit files or draw anything.
 
 The rules below are drawn from the cairn-cms docs register, Visuals section
 (`.claude/skills/cairn-writing-docs/references/docs-register.md`).
-Read the register under the cairn-cms checkout your dispatch names (a pass worktree holds the
-version the page was written against).
+Read the register under the cairn-cms checkout your dispatch names (the worktree where the page was
+drafted holds the version the page was written against).
 Read the register's Visuals section before grading a page; it is the current contract, and
 this file only restates the parts a grader needs at hand.
 
