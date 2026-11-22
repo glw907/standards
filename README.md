@@ -32,6 +32,7 @@ Plugin skills and agents carry the `standards:` prefix, such as `standards:diff-
 - `plugins/standards/skills/` holds the skills. Each `SKILL.md` stays under 500 lines.
 - `plugins/standards/agents/` holds the review agents.
 - `plugins/standards/bin/` holds the command-line helpers the skills call.
+- `plugins/standards/evals/` holds the plugin's evaluation cases, and `scripts/run-evals.sh` runs them with `claude plugin eval`. The suite runs on a workstation signed in to Claude Code, never in CI. A full run takes about half an hour and the command prices it near 27 dollars.
 - `scripts/scan.sh` checks the repository for secrets and personal paths before every push and in CI.
 
 ## Contributing
