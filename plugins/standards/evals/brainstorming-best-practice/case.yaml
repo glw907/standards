@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: brainstorming-best-practice
+context:
+  history_file: history.jsonl

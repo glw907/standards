@@ -1,0 +1,5 @@
+# Evaluation results, written by scripts/run-evals.sh.
+plugins/standards/evals/results/
+# Session files a run leaves in each case that starts from a history. The history stays tracked.
+plugins/standards/evals/*/*.jsonl
+!plugins/standards/evals/*/history.jsonl
