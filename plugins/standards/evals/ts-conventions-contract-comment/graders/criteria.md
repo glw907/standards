@@ -3,7 +3,7 @@ type: llm
 ---
 PASS only if all of these hold:
 
-1. The doc comment is TSDoc and states the contract a caller needs: the delay starts from `baseMs`, doubles per attempt, and never exceeds `maxMs`. It does not restate parameter or return types, and it carries no `{type}` in a tag. Mentioning that the exponent stops growing at attempt 30 is welcome but not required, because `Math.min(raw, maxMs)` hides that clamp from any caller whose `maxMs` is below `baseMs` times 2 to the 30th.
+1. The doc comment is TSDoc and states the contract a caller needs: the delay doubles per attempt, the exponent stops growing at attempt 30, and the result never exceeds `maxMs`. It does not restate parameter or return types, and it carries no `{type}` in a tag.
 2. The answer would drop the two comments that paraphrase the next line ("compute the exponent", "multiply the base by two to the power of the exponent") and keep the one that gives the reason (one stuck call cannot stall the queue).
 3. The comment contains no em dash.
 
