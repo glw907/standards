@@ -28,12 +28,11 @@ If vet or tests fail, fix the issues before proceeding.
 ### 2. Simplify
 
 Run the simplifier once, as the branch's close step. When
-`<repo>/.claude/skills/simplify/` exists, invoke that project skill;
-otherwise dispatch `code-simplifier:code-simplifier` over the changed Go, with the instruction
-"no sub-agents, work serially, one gate, one commit". Check
-the path, never the name: the bundled `/simplify` resolves by name in every
-repo, so a by-name call never proves the project skill ran. Fix any issues
-found, and re-run `make check` after fixes.
+`<repo>/.claude/skills/simplify/` exists, invoke that project skill.
+Otherwise run the bundled `/simplify` over the changed Go.
+Check the path, never the name: the bundled `/simplify` resolves by name
+in every repo, so a by-name call never proves the project skill ran. Fix
+any issues found, and re-run `make check` after fixes.
 
 ### 3. Commit and push
 

@@ -1,11 +1,9 @@
 ---
 name: bubbletea-design
 description: >-
-  Use when building or modifying bubbletea terminal UI components,
-  diagnosing TUI rendering or alignment issues, or reviewing TUI
-  layout code for visual correctness. Also use when choosing icons,
-  spacing, box-drawing characters, or theme-driven color decisions
-  for terminal interfaces.
+  Layout and visual rules for bubbletea terminal UIs. Use when building or changing bubbletea
+  components, fixing TUI rendering or alignment, or choosing icons, spacing, box-drawing characters,
+  or theme colors.
 ---
 
 # Bubbletea TUI Design

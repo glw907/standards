@@ -1,6 +1,9 @@
 ---
 name: tui-visual-verify
-description: Verify a terminal UI (bubbletea or any TUI) by driving the REAL terminal and looking at what it paints, never only at a text capture. Use before any claim that a TUI screen, theme, glyph, resize rung, or pointer behavior "works", at every gate that demos a TUI, when an owner reports a screen that looks wrong, and when goldens and teatest are green but nobody has seen the painted result. Drives kitty-headless-shot and grades fresh-context.
+description: >-
+  Verifies a terminal UI by driving a real terminal and looking at what it paints, never only at a
+  text capture. Use before claiming a TUI screen, theme, glyph, resize, or pointer behavior works,
+  or when a screen looks wrong though its tests pass.
 ---
 
 # TUI visual verification

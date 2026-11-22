@@ -1,11 +1,9 @@
 ---
 name: backlog-sweep
-description: >
-  Ground a repo's open backlog items in the current code and give each a verdict (fold, keep,
-  done, duplicate, reword, drop), so the backlog stays maintained with thought. Use at every pass
-  design (the project's pass guide runs the scoped sweep), and in any repo when the user asks to
-  "sweep the backlog", "groom the backlog", "clean up the backlog", or "what in the backlog still
-  matters". Not for filing a new item (that is log-issue).
+description: >-
+  Grounds each open backlog item in the current code and gives it a verdict: fold, keep, done,
+  duplicate, reword, or drop. Use when the user asks to sweep, groom, or clean up a backlog, or asks
+  what in it still matters. Not for filing an item (that is log-issue).
 ---
 
 # Backlog sweep

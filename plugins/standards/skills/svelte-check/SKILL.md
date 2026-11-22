@@ -1,11 +1,9 @@
 ---
 name: svelte-check
 description: >-
-  Run svelte-check type checking for this SvelteKit project. Use after writing or modifying any
-  .svelte, .ts, or .md (mdsvex) file, after installing packages, changing tsconfig.json, or
-  updating svelte.config.js, and on requests like "check for errors", "does this compile", or "run
-  type check". Scope: a repo whose root package.json has a check script, not one whose web app is a
-  subdirectory under a non-Node gate.
+  Runs svelte-check type checking in a SvelteKit project whose root package.json has a check script.
+  Use after changing .svelte, .ts, or mdsvex files, packages, tsconfig.json, or svelte.config.js, or
+  when asked whether the project compiles.
 ---
 
 Run `npm run check` from the project root and interpret the results.

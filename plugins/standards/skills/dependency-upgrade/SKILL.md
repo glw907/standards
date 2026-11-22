@@ -1,12 +1,9 @@
 ---
 name: dependency-upgrade
-description: >
-  Use when taking any dependency bump in any repo: a pre-release sweep, a
-  Dependabot or Renovate PR, a single package taken for a feature, a major the user has approved,
-  or a question like "are we current", "what's outdated", "should we upgrade X", "any new
-  capabilities in the new version". Also use when a release is being prepared, since a cut
-  starts from current dependencies. Do not use for adding a brand-new dependency (that is a
-  design question for the pass that needs it).
+description: >-
+  The procedure for any dependency bump: a pre-release sweep, a Dependabot or Renovate pull request,
+  one package taken for a feature, or an approved major. Use for those and for questions like
+  "what's outdated" or "should we upgrade X". Not for adding a new dependency.
 ---
 
 # Dependency upgrade

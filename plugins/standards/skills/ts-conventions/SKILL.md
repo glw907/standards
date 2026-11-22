@@ -1,12 +1,9 @@
 ---
 name: ts-conventions
-description: >
-  Mandatory rules for writing TypeScript comments.
-  Use before writing, reviewing, or modifying any TypeScript doc comment
-  or inline comment. Covers the write-time comment-or-not gate, the TSDoc
-  doc-comment shape (document the contract, never the type), the
-  ESLint jsdoc/tsdoc flat config, and the standard's principles and
-  exemplars.
+description: >-
+  Mandatory rules for TypeScript comments: when to comment, the TSDoc shape (the contract, never the
+  type), and the ESLint jsdoc/tsdoc config. Use before writing, reviewing, or changing any
+  TypeScript doc comment or inline comment.
 ---
 
 # TypeScript Comment Conventions

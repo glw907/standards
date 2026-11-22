@@ -1,11 +1,9 @@
 ---
 name: elm-conventions
-description: >
-  Mandatory rules for Bubble Tea v2 UI code in Go. Use before writing,
-  reviewing, or modifying any bubbletea tea.Model, Update, View, or Cmd.
-  Keeps the tea loop predictable and auditable: one top-level model,
-  components as plain structs with imperative methods, mutations only in
-  Update, I/O only in tea.Cmd, shared state hoisted to the root.
+description: >-
+  Mandatory rules for Bubble Tea v2 code in Go: one top-level model, components as plain structs,
+  mutations only in Update, and I/O only in tea.Cmd. Use before writing, reviewing, or changing any
+  tea.Model, Update, View, or Cmd.
 ---
 
 # Elm Architecture Conventions (Bubble Tea v2)

@@ -7,9 +7,8 @@ script=${CHECK_SKILL_LINES:-$src/scripts/check-skill-lines.sh}
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 
-spec=plugins/standards/skills/spec-plan-review/SKILL.md
-rev=plugins/standards/agents/plan-reviewer.md
 go=plugins/standards/skills/go-conventions/SKILL.md
+brain=plugins/standards/skills/brainstorming/SKILL.md
 
 # words N FILE: write a file of exactly N words.
 words() { mkdir -p "$(dirname "$2")"; yes word | head -n "$1" | tr '\n' ' ' > "$2"; }
@@ -19,11 +18,9 @@ fresh() {
   rm -rf "$tmp/root"
   mkdir -p "$tmp/root"
   cd "$tmp/root" || exit 2
-  words 100 "$spec"
-  words 1000 "$rev"
   words 1000 "$go"
-  mkdir -p plugins/standards/skills/short
-  echo "A short skill." > plugins/standards/skills/short/SKILL.md
+  mkdir -p "$(dirname "$brain")"
+  echo "A short skill." > "$brain"
 }
 
 # expect NAME CODE PATTERN: run the script on the tree; check the exit code and, when given, stderr.
@@ -45,24 +42,15 @@ fresh
 expect "clean tree" 0
 
 fresh
-mkdir -p plugins/standards/skills/long
-yes line | head -n 501 > plugins/standards/skills/long/SKILL.md
-expect "501 lines" 1 "skills/long/SKILL.md has 501 lines"
-
-fresh
-words 601 "$spec"
-expect "601 words in spec-plan-review" 1 "601 words (limit 600)"
-
-fresh
-words 1301 "$rev"
-expect "1301 words in plan-reviewer" 1 "1301 words (limit 1300)"
+yes line | head -n 501 > "$brain"
+expect "501 lines" 1 "skills/brainstorming/SKILL.md has 501 lines"
 
 fresh
 words 1401 "$go"
 expect "1401 words in go-conventions" 1 "1401 words (limit 1400)"
 
 fresh
-rm "$rev"
-expect "plan-reviewer removed" 1 "is missing"
+rm "$go"
+expect "go-conventions removed" 1 "is missing"
 
 echo "check-skill-lines-test: ok"

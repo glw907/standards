@@ -1,6 +1,9 @@
 ---
 name: brainstorming
-description: "Explore a design with the user before building it: one question at a time, two or three approaches with a recommendation, then a written design for one approval. Use when new work's design is not settled yet, or when the user asks to brainstorm or think something through."
+description: >-
+  Explores a design with the user before it is built: one question at a time, two or three
+  approaches with a recommendation, then a written design to approve. Use when new work's design is
+  not settled, or when the user asks to brainstorm or think something through.
 ---
 
 # Brainstorming
@@ -29,8 +32,8 @@ Before you start implementing, you must, in order:
    human partner pick one (see Lay out the approaches).
 2. Write the design doc, short or full (see Size the Work).
 3. Get their approval of that doc.
-4. Plan it: for software, follow `standards:running-passes` and the
-   repository's pass guide.
+4. Build it: for software, build it by the repository's guide for
+   building from a spec.
 
 If nothing is open when you write your first message and there's one
 sensible way, steps 1 to 3 happen in that message (see Your First
@@ -254,8 +257,9 @@ For a small change, the short design covers the same points in a line
 or two each and goes straight to your human partner, without the
 builder check.
 
-**Where it goes:** where the repository's pass guide puts designs,
-committed. Absent a guide, pick a sensible place and say where. Your
+**Where it goes:** where the repository's guide for building from a
+spec puts designs, committed. Absent a guide, pick a sensible place and
+say where. Your
 human partner's preferences override both.
 
 **Builder check** (for a project): dispatch a fresh subagent with
@@ -293,9 +297,9 @@ and the gate goes with it. A spike they said yes to may be built; it
 stays labeled throwaway, and keeping what it produced is a new request
 that comes back through this gate.
 
-After the design doc is approved, the next step is the plan: for
-software, follow `standards:running-passes` and the repository's pass
-guide, which also set where the plan goes.
+After the design doc is approved, the next step is the build: for
+software, build it by the repository's guide for building from a spec,
+which also says where the plan goes.
 </HARD-GATE>
 
 ## Red Flags
@@ -329,4 +333,7 @@ Requirements, scope, tradeoffs, and conceptual choices stay in text. A
 question about a UI topic isn't automatically a visual question.
 
 If they accept, read `visual-companion.md` in this directory before
-starting the server.
+starting the server. The server's scripts are
+`${CLAUDE_SKILL_DIR}/scripts/start-server.sh` and
+`${CLAUDE_SKILL_DIR}/scripts/stop-server.sh`. Run each by that full
+path wherever `visual-companion.md` names it.
