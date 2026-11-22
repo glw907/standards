@@ -1,6 +1,9 @@
 ---
 name: design-refinement
-description: Use when polishing an existing design — a page, app screen, or artifact whose bones are approved — iterating live against a dev server, iterating async via probe pages the owner reviews on their own time, or landing a ratified design toward a benchmark finish. The refinement counterpart to origination skills (frontend-design) and port-matching skills (visual-fidelity).
+description: >-
+  Polishes a design whose structure is approved (a page, app screen, or artifact): live against a
+  dev server, async through probe pages the owner reviews later, or toward a benchmark finish. For a
+  new design use frontend-design; to match a reference use visual-fidelity.
 ---
 
 # Design refinement
@@ -46,9 +49,9 @@ silently absorbed.
 The deciding predicate is the work's state, not the owner's presence: while the owner's
 design notes are still arriving — taste unconverged — the work is an arc and iterations must
 be cheap; only ratified work runs the full machinery. Routing an iterative round into the
-settled-landing pipeline because the owner reviews async is the observed expensive failure
-(three notes-adjudicate-dispatch-gate-regen cycles before the
-owner named it as long, slow, and expensive loops). The full build-gate-baseline cycle runs once per settle, never per iteration.
+settled-landing pipeline because the owner reviews async is the expensive failure: every
+note pays for a dispatch, a gate, and a baseline regeneration. The full build-gate-baseline
+cycle runs once per settle, never per iteration.
 
 - **Exploratory arc (live)** — the owner is co-present, reviewing in a localhost tab (dev
   server + HMR), and the notes are probes ("could", "maybe", "try"). Expect 10-15 fast
@@ -77,8 +80,7 @@ screenshots plus CSS-injected variants against the deployed or dev surface — n
 production build per candidate. The owner verdicts per region (keep / revert / push
 further / pick B); kept verdicts accumulate in the arc log and land as one commit batch at
 settle, where the full gate, CI-canonical baseline regeneration, and deploy run exactly
-once. The ASC register round is the proven exemplar: probe page rendered, verdict in
-minutes, one landing commit.
+once.
 
 Before a probe page or prototype goes to the owner, a prose reviewer reads its fixed UI
 copy (headlines, ledes, button and empty-state text) against the register of the content the
@@ -111,8 +113,7 @@ per-iteration contract:
    scale, a reservation), state every affected element's treatment before editing, apply it
    everywhere the axes reach, render once. A per-element patch answering a per-element note
    is how the locally-coherent failure mode enters an arc, cheap probes or not. Three live
-   tells, all observed (the later two under a weaker version
-   of this rule): the owner's next note contradicting your last fix (too loud, then nearly
+   tells: the owner's next note contradicting your last fix (too loud, then nearly
    invisible); a third note arriving on the same surface (a pill family whose inks diverged
    because it was assembled by accretion, never designed); and the owner having to say
    "grouped feedback, holistic response" out loud. Each means the surface was never
@@ -135,9 +136,9 @@ Self-checks run in three tiers, never the full gate:
   console errors. For pure CSS and copy tweaks that is all — the owner's live eyes are the
   per-iteration visual gate.
 - **Structural edits** (splitters, wrappers, `{@html}` segments — anything whose failure is
-  invisible in the source): the targeted regression test plus a quick DOM sanity check. A
-  hydration-duplication bug once cost a whole round of misread owner notes because this
-  tier was missing.
+  invisible in the source): the targeted regression test plus a quick DOM sanity check.
+  Without this tier, a bug such as duplicated hydrated content reaches the owner, who then
+  writes a round of notes about the wrong render.
 - **Every ~5 iterations,** and before any "ready for your look" on a structural rework: one
   own render read at a narrow and a wide width, catching the global drift that focused
   per-note eyes miss in both parties.
@@ -306,7 +307,7 @@ consistency; custom list markers; asymmetric spacing that follows hierarchy; hea
 (tighter above, looser below); cursor affordance on icon-only buttons; font loading versus
 layout shift.
 
-## Anti-patterns (each observed to cost a real round)
+## Anti-patterns
 
 - Element-by-element prose dispatches, with the owner as the only person reading whole
   compositions.
@@ -315,8 +316,8 @@ layout shift.
   change they were calibrated against. Re-measure every optical constant after any type
   change; em units scale with the wrong font when the reference element changes.
 - Deploying every merge to the owner's review surface mid-review.
-- Treating the owner's design questions as commands (one real page shipped three corner
-  treatments before a single design exchange settled the question).
+- Treating the owner's design questions as commands, so a page ships several treatments of
+  one detail before a single design exchange settles it.
 - Inventing copy during refinement. The existing approved text — or the owner's supplied
   text — is the specification; trims are deletion-only (cut whole clauses, never paraphrase)
   so every surviving word stays the author's own.

@@ -1,6 +1,8 @@
 ---
 name: cairn-figure
-description: The production path for a figure (diagram, screenshot, or reproduction) on a project docs page. Use when adding, editing, or reviewing a figure on a docs page, or when a page needs a diagram, screenshot, or illustration and you are deciding whether it earns its place.
+description: >-
+  The production path for a figure (diagram, screenshot, or reproduction) on a docs page. Use when
+  adding, editing, or reviewing a figure, or when deciding whether a page needs one.
 ---
 
 # Figure production

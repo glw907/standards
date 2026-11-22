@@ -1,11 +1,9 @@
 ---
 name: python-conventions
-description: >
-  Mandatory rules for writing Python docstrings and comments. Use before writing, reviewing, or modifying any Python
-  docstring or inline comment. Covers the write-time comment-or-not gate,
-  the PEP 257 docstring shape (state intent, never the type the hint
-  carries), the ruff D config, and the standard's principles and
-  exemplars.
+description: >-
+  Mandatory rules for Python docstrings and comments: when to comment, the PEP 257 shape (state
+  intent, never the type the hint carries), and the ruff D config. Use before writing, reviewing, or
+  changing any Python docstring or comment.
 ---
 
 # Python Comment Conventions

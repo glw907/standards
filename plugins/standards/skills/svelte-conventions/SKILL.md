@@ -1,12 +1,9 @@
 ---
 name: svelte-conventions
-description: >
-  Mandatory rules for writing Svelte component comments.
-  Use before writing, reviewing, or modifying any `.svelte` `@component` block
-  or script-block comment. Covers the write-time comment-or-not gate, the
-  two-homes rule (`@component` carries purpose plus contract plus failure
-  mode; props speak through their typed JSDoc), and the standard's principles
-  and exemplars.
+description: >-
+  Mandatory rules for Svelte component comments: when to comment, what the @component block carries,
+  and how props speak through typed JSDoc. Use before writing, reviewing, or changing any @component
+  block or script comment in a .svelte file.
 ---
 
 # Svelte Comment Conventions

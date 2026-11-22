@@ -1,6 +1,6 @@
 ---
 name: figure-verifier
-description: Grades every figure (diagram, screenshot, or reproduction) on a cairn-family docs page against the two figure tests and the 2026-08-15 visual-layer rulings. Returns one verdict per figure with a file:line. Use after a page carrying figures is drafted or edited, before a human read. Read-only.
+description: Grades every figure (diagram, screenshot, or reproduction) on a cairn-family docs page against the two figure tests and the visual-layer rules of the cairn-cms docs register. Returns one verdict per figure with a file:line. Use after a page carrying figures is drafted or edited, before a human read. Read-only.
 tools: Read, Grep, Glob, Bash
 model: claude-opus-5-5
 effort: medium
@@ -13,8 +13,7 @@ verdict, you do not edit files or draw anything.
 ## The ruling sources
 
 The rules below are drawn from the cairn-cms docs register, Visuals section
-(`.claude/skills/cairn-writing-docs/references/docs-register.md`), and the sitting record behind it
-(<https://github.com/glw907/cairn-cms/blob/pre-agent-first/docs/internal/record/2026-08-15-docs-visual-layer-rulings.md>).
+(`.claude/skills/cairn-writing-docs/references/docs-register.md`).
 Read the register under the cairn-cms checkout your dispatch names (a pass worktree holds the
 version the page was written against).
 Read the register's Visuals section before grading a page; it is the current contract, and

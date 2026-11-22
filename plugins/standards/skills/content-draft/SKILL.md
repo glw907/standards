@@ -1,6 +1,9 @@
 ---
 name: content-draft
-description: "Draft website content (pages, posts, form copy) brief-first. Use BEFORE writing any new site page, post, or form copy, or when the user says \"draft a page\", \"write the X page\", \"write a post\", \"write copy for\". For website content only, NOT code, docs, specs, or commit messages. Loads the shared web-content method and the site's generative content guide."
+description: >-
+  Drafts website content (pages, posts, form copy) brief-first, from the shared web-content method
+  and the site's content guide. Use before writing any new site page, post, or form copy. Not for
+  code, docs, specs, or commit messages.
 ---
 
 # Content Draft

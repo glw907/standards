@@ -28,9 +28,8 @@ Method, per page and width:
    scrollWidth or computed-style check would settle and run it when you have the recipe.
    Mandatory on every page with interactive elements: the contrast probe — computed color
    vs background on every button/CTA/link (flag any pair under 3:1; color === background
-   is an automatic STRUCTURAL fail). White-on-white text is invisible in full-page
-   screenshots at review scale; three verifiers missed live fireweed-on-fireweed CTAs
-   (2026-07-06) because none ran this check.
+   is an automatic STRUCTURAL fail). Text the same color as its background is invisible in
+   full-page screenshots at review scale, so only this check catches it.
 4. The glance test last: would the site's owner, at a glance, recognize the render as
    their site? YES/NO with the top reason.
 

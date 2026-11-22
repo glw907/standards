@@ -1,6 +1,9 @@
 ---
 name: content-review
-description: "Gate-check website content (pages, posts, form copy): the four hard gates plus findings ordered by edit cost. Scores only on request. Use after drafting or editing site content, before committing, or when the user says \"clean up this content\", \"check for AI tells\", \"editorial pass\", \"review this page\", \"score this copy\". For website content only. Takes a file path."
+description: >-
+  Gate-checks website content (pages, posts, form copy) against four hard gates and lists findings
+  by edit cost, with scores only on request. Use after drafting or editing site content and before
+  committing it. Takes a file path.
 context: fork
 ---
 

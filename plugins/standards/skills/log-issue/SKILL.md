@@ -1,12 +1,9 @@
 ---
 name: log-issue
-description: >
-  Quick-log a bug, feature, or improvement to the project backlog.
-  Use when the user says "log issue", "track this", "add to backlog",
-  "note this for later", "we should fix", "future work", "TODO",
-  or describes a problem/idea they want to capture without acting on it now.
-  Also trigger when the user notices a bug or limitation during other work
-  and wants to record it rather than fix it immediately.
+description: >-
+  Quick-logs a bug, feature, or improvement to the project backlog. Use when the user says "log
+  issue", "track this", "add to backlog", or "note this for later", or notices a problem during
+  other work and wants it recorded rather than fixed now.
 ---
 
 # Log Issue

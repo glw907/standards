@@ -1,13 +1,9 @@
 ---
 name: go-conventions
-description: >
-  Mandatory rules for writing Go code. Use before
-  writing, reviewing, or modifying any Go file. Covers anti-patterns
-  (unnecessary interfaces, builder patterns, defensive nil checks),
-  project structure, cobra CLI shape, error wrapping, atomic file writes,
-  table-driven tests, Makefile gates, naming, modern-stdlib idioms, and
-  the comment standard. Every Go file, function, test, comment, and error
-  message must conform.
+description: >-
+  Mandatory rules for Go code: anti-patterns, project layout, cobra CLI shape, error wrapping,
+  atomic file writes, table-driven tests, naming, and comments. Use before writing, reviewing, or
+  changing any Go file.
 ---
 
 # Go Conventions

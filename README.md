@@ -1,6 +1,6 @@
 # standards
 
-A Claude Code plugin marketplace holding one plugin, `standards`: craft skills for languages and tools, review agents, and a short lifecycle for planning, executing, and closing a pass of work. Anything in it works in any repository, with no machine-specific tool or path assumed. The `kitty-headless-shot` helper needs `distrobox`.
+A Claude Code plugin marketplace holding one plugin, `standards`: craft skills for languages and tools, design and verification methods, and review agents. Anything in it works in any repository, with no machine-specific tool or path assumed. The `kitty-headless-shot` helper needs `distrobox`.
 
 ## Install
 
