@@ -143,6 +143,7 @@ Source: https://github.com/sveltejs/ai-tools
 Commit: f9d22f2f7f7c
 License: MIT
 Copyright (c) 2026 [Svelte Contributors](https://github.com/sveltejs/ai-tools/graphs/contributors)
+Modified: references/attach.md, await-expressions.md, hydratable.md, and snippet.md each gain a contents list at the top.
 
 License text for sveltejs/ai-tools:
 
