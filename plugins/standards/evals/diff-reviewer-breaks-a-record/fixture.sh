@@ -12,6 +12,10 @@ go 1.24
 
 require github.com/google/uuid v1.6.0
 EOF
+cat > go.sum <<'EOF'
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+EOF
 cat > docs/decisions/0001-integer-member-ids.md <<'EOF'
 # 1. Member IDs are integers
 
@@ -145,17 +149,18 @@ type Skipped struct {
 // CSV adds each name,email row in r to s and returns the rows it skipped.
 func CSV(ctx context.Context, r io.Reader, s *store.Store) ([]Skipped, error) {
 	cr := csv.NewReader(r)
-	cr.FieldsPerRecord = 2
+	cr.FieldsPerRecord = -1
 	var skipped []Skipped
-	for line := 1; ; line++ {
+	for {
 		rec, err := cr.Read()
 		if err == io.EOF {
 			return skipped, nil
 		}
 		if err != nil {
-			return skipped, fmt.Errorf("read line %d: %w", line, err)
+			return skipped, fmt.Errorf("read members: %w", err)
 		}
-		if rec[1] == "" {
+		line, _ := cr.FieldPos(0)
+		if len(rec) < 2 || rec[1] == "" {
 			skipped = append(skipped, Skipped{Line: line, Reason: "no email"})
 			continue
 		}

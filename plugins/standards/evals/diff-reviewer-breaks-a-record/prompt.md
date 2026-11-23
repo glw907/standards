@@ -1,6 +1,7 @@
 ---
 max_turns: 12
 timeout_seconds: 600
+allowed_tools: [Agent, Bash, Read, Grep, Glob]
 tags: [diff-reviewer]
 ---
 The `feature` branch in this repo is ready. Before I merge it, have a fresh reviewer read `main..feature` against the task's acceptance criteria and give me its verdict: accept, fix, or escalate.

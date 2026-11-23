@@ -129,7 +129,7 @@ func NewEmailNotifier(addr, from string, opts ...Option) *EmailNotifier {
 
 // Notify emails r to its member.
 func (e *EmailNotifier) Notify(r Reminder) error {
-	msg := fmt.Sprintf("To: %s\r\nSubject: Reminder\r\n\r\n%s\r\n", r.Email, r.Text)
+	msg := fmt.Sprintf("From: %s\r\nTo: %s\r\nSubject: Reminder\r\n\r\n%s\r\n", e.from, r.Email, r.Text)
 	if err := smtp.SendMail(e.addr, nil, e.from, []string{r.Email}, []byte(msg)); err != nil {
 		return fmt.Errorf("send to %s: %w", r.Email, err)
 	}
