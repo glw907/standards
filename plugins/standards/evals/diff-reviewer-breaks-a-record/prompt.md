@@ -10,3 +10,5 @@ Acceptance criteria:
 
 1. `members import <file.csv>` adds each `name,email` row as a member.
 2. A row with no email is skipped and reported with its line number, and the import goes on.
+
+The export has no header row.

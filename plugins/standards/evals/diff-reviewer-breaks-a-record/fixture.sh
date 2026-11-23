@@ -134,6 +134,7 @@ import (
 	"encoding/csv"
 	"fmt"
 	"io"
+	"strings"
 
 	"github.com/google/uuid"
 
@@ -160,11 +161,11 @@ func CSV(ctx context.Context, r io.Reader, s *store.Store) ([]Skipped, error) {
 			return skipped, fmt.Errorf("read members: %w", err)
 		}
 		line, _ := cr.FieldPos(0)
-		if len(rec) < 2 || rec[1] == "" {
+		if len(rec) < 2 || strings.TrimSpace(rec[1]) == "" {
 			skipped = append(skipped, Skipped{Line: line, Reason: "no email"})
 			continue
 		}
-		m := store.Member{ID: uuid.NewString(), Name: rec[0], Email: rec[1]}
+		m := store.Member{ID: uuid.NewString(), Name: strings.TrimSpace(rec[0]), Email: strings.TrimSpace(rec[1])}
 		if err := s.Insert(ctx, m); err != nil {
 			return skipped, fmt.Errorf("line %d: %w", line, err)
 		}
