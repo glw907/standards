@@ -56,7 +56,9 @@ voice or budget question the sources do not answer as `[ASK]`.
 4. **Self-check.** Run the method's self-check, plus the brief checks: every brief fact landed
    exactly once, every `[ASK]` survived visibly, no container over its budget.
 
-5. **Offer the gate check.** Offer to run the content-review skill before saving or committing.
+5. **Run the gate check.** Save the draft to its content file, run the content-review skill
+   on that path, and give its gate status and findings with the draft. Never end on an
+   offer to run it: a session with nobody at the keyboard stops there.
 
 ## Hard rules
 

@@ -1,0 +1,39 @@
+extends: existence
+message: "'%s' is on the banned-word list."
+level: error
+ignorecase: true
+tokens:
+  - delv(?:e|es|ed|ing)
+  - div(?:e|es|ed|ing) into
+  - dove into
+  - unlock(?:s|ed|ing)?
+  - embark(?:s|ed|ing)?
+  - foster(?:s|ed|ing)?
+  - cultivat(?:e|es|ed|ing)
+  - empower(?:s|ed|ing|ment)?
+  - leverag(?:e|es|ed|ing)
+  - harness(?:es|ed|ing)?
+  - unpack(?:s|ed|ing)?
+  - underscor(?:e|es|ed|ing)
+  - bolster(?:s|ed|ing)?
+  - shed(?:s|ding)? light on
+  - pav(?:e|es|ed|ing) the way
+  - robust
+  - comprehensive
+  - vibrant
+  - dynamic
+  - seamless(?:ly)?
+  - holistic
+  - intricate
+  - multifaceted
+  - passion(?:s|ate|ately)?
+  - vital
+  - crucial
+  - essential
+  - pivotal
+  - transformative
+  - groundbreaking
+  - cutting-edge
+  - innovative
+  - foundational
+  - testament

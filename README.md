@@ -37,7 +37,7 @@ Plugin skills and agents carry the `standards:` prefix, such as `standards:diff-
 
 ## Contributing
 
-Changes land by pull request. The `validate` check runs `claude plugin validate` on the plugin and the marketplace, the scan, the skill length check, and the reference check. See `THIRD-PARTY-NOTICES` for vendored skills and their licenses.
+Changes land by pull request. The `validate` check runs `claude plugin validate` on the plugin and the marketplace, the scan, the skill length check, the reference check, and the content style test. See `THIRD-PARTY-NOTICES` for vendored skills and their licenses.
 
 ## License
 
