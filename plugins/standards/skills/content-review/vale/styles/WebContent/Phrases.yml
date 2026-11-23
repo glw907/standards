@@ -1,0 +1,18 @@
+extends: existence
+message: "'%s' is a banned construction."
+level: error
+ignorecase: true
+nonword: true
+tokens:
+  - \bnot just\b
+  - \bwhether you(?:'|’)re\b
+  - \bmore than just\b
+  - \bin today(?:'|’)s world\b
+  - \bit(?:'|’)s worth noting\b
+  - \bit(?:'|’)s important to note\b
+  - \bwhen it comes to\b
+  - \bat its core\b
+  - \bat the end of the day\b
+  - \bjoin us as we\b
+  - \bdiscover the joy of\b
+  - \bto the next level\b

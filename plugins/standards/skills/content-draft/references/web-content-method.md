@@ -54,7 +54,7 @@ the deterministic Vale check.
    fresh. Without a calibration doc, do the hunt inline as a second read with that single job.
    Then run the section-6 self-check plus the brief checks: facts landed once, every `[ASK]`
    visible, budgets held.
-6. Offer the gate check. Offer to run `content-review` before saving or committing.
+6. Run the gate check. Save the draft, run `content-review` on its file, and report the result.
 
 Draft-off, optional, for a high-stakes page on request: generate two or three candidates from
 deliberately different stances (FAQ-flat, trailhead-spoken, letter-home), judge each against the
@@ -188,9 +188,9 @@ AI-tell freedom:
 - 0: saturated with tells.
 
 Cadence and burstiness:
-- 5: varied sentence and paragraph length, no low-burstiness flag from the sweep.
+- 5: varied sentence and paragraph length, no flat stretch.
 - 3: some variation, one flat stretch.
-- 1: uniform cadence, the sweep flags low burstiness.
+- 1: uniform cadence in most paragraphs.
 - 0: metronomic.
 
 Structure and scannability:

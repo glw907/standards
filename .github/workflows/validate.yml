@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITLEAKS_VERSION: 8.30.1
+      VALE_VERSION: 3.28.1
     steps:
       - uses: actions/checkout@v7
         with:
@@ -28,6 +29,14 @@ jobs:
           sha256sum --ignore-missing -c "gitleaks_${GITLEAKS_VERSION}_checksums.txt"
           tar -xzf "gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" gitleaks
           sudo install gitleaks /usr/local/bin/gitleaks
+      - name: Install Vale
+        run: |
+          base="https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}"
+          curl -fsSL -O "${base}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz"
+          curl -fsSL -O "${base}/vale_${VALE_VERSION}_checksums.txt"
+          sha256sum --ignore-missing -c "vale_${VALE_VERSION}_checksums.txt"
+          tar -xzf "vale_${VALE_VERSION}_Linux_64-bit.tar.gz" vale
+          sudo install vale /usr/local/bin/vale
       - name: Install Claude Code
         run: npm install --global @anthropic-ai/claude-code@2.1.316
       - name: Validate the plugin and the marketplace
@@ -45,3 +54,5 @@ jobs:
         run: tests/check-skill-lines-test.sh
       - name: Check reference form
         run: node scripts/check-references.mjs
+      - name: Prove the content style flags the banned-word list
+        run: bash tests/content-style-test.sh

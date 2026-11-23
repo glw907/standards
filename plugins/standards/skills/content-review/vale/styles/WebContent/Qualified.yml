@@ -1,0 +1,8 @@
+extends: existence
+message: "'%s' is banned as a metaphor or as empty praise. Keep it only in its literal sense."
+level: warning
+ignorecase: true
+tokens:
+  - navigat(?:e|es|ed|ing)
+  - journeys?
+  - nuanced

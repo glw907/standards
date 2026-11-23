@@ -5,6 +5,8 @@ description: >-
   by edit cost, with scores only on request. Use after drafting or editing site content and before
   committing it. Takes a file path.
 context: fork
+background: false
+allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/content-vale.sh *)
 ---
 
 # Content Review
@@ -24,10 +26,14 @@ saying the site guide was absent.
 1. **Read** the target file, the site guide (when present), and the method. If the piece has a brief in
    `docs/content-briefs/`, read it; brief facts are the claim baseline.
 
-2. **Run Vale** on the file for the machine signals (the site's `.vale.ini` selects the content
-   baseline): `vale <file>`
-   It reports banned words, structural tells, and the advisory sweep. Inputs, never
-   the verdict.
+2. **Run the banned-word check** on the file:
+   `${CLAUDE_SKILL_DIR}/scripts/content-vale.sh <file>`
+   It runs Vale with the style this skill ships, so the site needs no Vale config. An error
+   is a word or construction from the method's catalog. A warning is `navigate`, `journey`,
+   or `nuanced`, which the catalog bans only as metaphor or empty praise. Vale matches
+   letters and can't read sense: it flags a lifting harness and a person named Foster too,
+   and neither is a gate hit. Exit 2 means the check did not run. Open the report by saying
+   so, and check the catalog by eye. Inputs, never the verdict.
 
 3. **Check the four hard gates:** a banned word or phrase, an unverified or false claim
    (check stated facts against the brief where one exists, and check implications too: read as
