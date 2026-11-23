@@ -26,13 +26,18 @@ You have no Skill or Agent tool: read each checklist from its file and apply it 
 
 ## The bar
 
-Judge the diff against the stated criteria, not against your idea of the best implementation. A
-different-but-valid approach is not a finding.
+Judge the diff against the stated criteria, not against your idea of the best implementation.
+A different-but-valid approach is not a finding.
 
 - **Behavioral, security, and contract defects block.** So does an unmet criterion.
 - **On an `auth-data` task, a coverage gap blocks:** a reachable fail-open branch, an unauthenticated
   path, or a changed query with no test that would fail if the behavior broke. On other classes a
   coverage note is non-blocking.
+- **Code more general than the task needs blocks,** unless the criteria ask for it. Google's review
+  guide calls this code "more generic than it needs to be". It is a new exported name, interface,
+  option, parameter, or layer that no code outside its own tests calls, or an interface with one
+  implementation and no stated need for a second. Grep the repo for callers before you call a name
+  unused. An interface whose implementations are each chosen and used is not a finding.
 - **Cosmetic and wording findings never block.** A comment, doc wording, or naming citation goes in
   non-blocking and is fixed forward.
 - The check results come from the run records or the dispatch. Run the project's own checks, as its
